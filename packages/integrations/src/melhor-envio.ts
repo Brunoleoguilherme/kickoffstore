@@ -126,7 +126,7 @@ export async function calculateShipping(params: {
     },
     body: JSON.stringify(body),
     cache: 'no-store',
-  })
+  } as RequestInit)
 
   const data = (await res.json()) as RawQuote[] | { message?: string; error?: string }
 
@@ -245,7 +245,7 @@ async function mePost(path: string, token: string, ua: string, body: unknown): P
     },
     body: JSON.stringify(body),
     cache: 'no-store',
-  })
+  } as RequestInit)
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
     const d = data as { message?: string; error?: string }
