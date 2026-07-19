@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+
+  /* Escala "brand" padrão (Dourado Kickoffstore) em canais RGB.
+     Parceiros sobrescrevem estes valores por subdomínio (tema white-label). */
+  --brand-50: 251 246 233;
+  --brand-100: 247 235 199;
+  --brand-200: 242 210 122;
+  --brand-300: 230 192 90;
+  --brand-400: 217 174 63;
+  --brand-500: 200 154 43;
+  --brand-600: 168 127 32;
+  --brand-700: 134 100 26;
+  --brand-800: 94 71 18;
+  --brand-900: 61 46 11;
+  --accent: 200 154 43;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+/* ---- Brand motion (Kickoffstore) ---- */
+@keyframes kof-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes kof-glow {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.42;
+    transform: translateX(-50%) scale(1.12);
+  }
+}
+
+@keyframes kof-sweep {
+  0% {
+    transform: translateX(-140%) skewX(-14deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(240%) skewX(-14deg);
+    opacity: 0;
+  }
+}
+
+.kof-fade-up {
+  opacity: 0;
+  animation: kof-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.kof-d1 {
+  animation-delay: 0.08s;
+}
+.kof-d2 {
+  animation-delay: 0.16s;
+}
+.kof-d3 {
+  animation-delay: 0.24s;
+}
+.kof-d4 {
+  animation-delay: 0.32s;
+}
+.kof-d5 {
+  animation-delay: 0.4s;
+}
+
+.kof-glow {
+  animation: kof-glow 6.5s ease-in-out infinite;
+}
+
+.kof-sweep {
+  animation: kof-sweep 7.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kof-fade-up,
+  .kof-glow,
+  .kof-sweep {
+    animation: none;
+    opacity: 1;
+  }
+}

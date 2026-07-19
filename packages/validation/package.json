@@ -1,0 +1,29 @@
+{
+  "name": "@kickoffstore/validation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./env": "./src/env.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.13.0",
+    "@kickoffstore/types": "workspace:*",
+    "eslint": "9.13.0",
+    "typescript": "5.6.3",
+    "typescript-eslint": "8.11.0",
+    "vitest": "2.1.3",
+    "@types/node": "22.7.5"
+  }
+}

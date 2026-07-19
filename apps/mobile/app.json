@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Kickoffstore",
+    "slug": "kickoffstore",
+    "scheme": "kickoffstore",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0c161b"
+    },
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.kickoffstore.app" },
+    "android": { "package": "com.kickoffstore.app" },
+    "plugins": ["expo-router"],
+    "extra": {
+      "router": { "origin": false }
+    }
+  }
+}

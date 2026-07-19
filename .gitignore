@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds / caches
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+
+# Env / segredos
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel/
+
+# Logs / SO
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Testes / cobertura
+coverage/
+
+# Ferramentas de recuperação (temporário)
+_recovery/
+_to_delete/
+_to_delete_*
+
+.vercel
+.env*

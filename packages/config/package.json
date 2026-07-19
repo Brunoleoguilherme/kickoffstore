@@ -1,0 +1,11 @@
+{
+  "name": "@kickoffstore/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": ["tsconfig.base.json", "tsconfig.nextjs.json", "tsconfig.react-native.json", "eslint.base.cjs"],
+  "exports": {
+    "./eslint": "./eslint.base.cjs",
+    "./tsconfig.base": "./tsconfig.base.json"
+  }
+}
