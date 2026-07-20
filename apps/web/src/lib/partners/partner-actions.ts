@@ -223,6 +223,30 @@ export async function toggleSharedProductAction(
   revalidatePath(`/admin/parceiros/${partnerId}`)
 }
 
+/** Marca/desmarca um produto numa seção (Destaque/Mais vendido) da vitrine deste parceiro. */
+export async function setProductPlacementAction(
+  partnerId: string,
+  productId: string,
+  section: 'destaques' | 'mais_vendidos',
+  on: boolean,
+): Promise<void> {
+  await requirePermission('catalog.write')
+  if (!partnerId || !productId) return
+  const admin = createAdminClient()
+  await admin
+    .from('product_placements')
+    .delete()
+    .eq('product_id', productId)
+    .eq('partner_id', partnerId)
+    .eq('section', section)
+  if (on) {
+    await admin
+      .from('product_placements')
+      .insert({ product_id: productId, partner_id: partnerId, section })
+  }
+  revalidatePath(`/admin/parceiros/${partnerId}`)
+}
+
 /** Marca ou desmarca TODOS os produtos compartilhados de uma vez. */
 export async function setAllSharedProductsAction(
   partnerId: string,

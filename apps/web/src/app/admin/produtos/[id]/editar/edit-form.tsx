@@ -116,8 +116,10 @@ export function EditForm({
       </div>
 
       <div className="rounded-md border border-night-100 p-3">
-        <Label>Seções da página inicial</Label>
-        <p className="mb-2 text-xs text-night-500">Onde o produto aparece na home.</p>
+        <Label>Seções na loja principal</Label>
+        <p className="mb-2 text-xs text-night-500">
+          Onde aparece na home da Kickoffstore. Nas lojas de parceiro, configure na tela do parceiro.
+        </p>
         <div className="space-y-1.5">
           <label className={checkRow}>
             <input

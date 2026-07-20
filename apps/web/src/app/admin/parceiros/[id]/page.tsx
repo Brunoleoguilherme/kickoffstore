@@ -47,14 +47,19 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
   const partner = partnerData as unknown as PartnerRow | null
   if (!partner) notFound()
 
-  const [{ data: productsData }, { data: linkData }] = await Promise.all([
+  const [{ data: productsData }, { data: linkData }, { data: placementData }] = await Promise.all([
     admin.from('products').select('id, name, status, partner_id').order('name', { ascending: true }),
     admin.from('partner_products').select('product_id').eq('partner_id', partner.id),
+    admin.from('product_placements').select('product_id, section').eq('partner_id', partner.id),
   ])
   const products = (productsData ?? []) as unknown as ProductRow[]
   const enabledIds = new Set(
     ((linkData ?? []) as unknown as Array<{ product_id: string }>).map((l) => l.product_id),
   )
+  const sectionsByProduct: Record<string, string[]> = {}
+  for (const row of (placementData ?? []) as Array<{ product_id: string; section: string }>) {
+    ;(sectionsByProduct[row.product_id] ??= []).push(row.section)
+  }
 
   // Exclusivos deste parceiro.
   const exclusives: ProductLite[] = products
@@ -106,7 +111,12 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
 
       <section className="rounded-xl border border-night-100 p-6">
         <h2 className="mb-4 font-semibold">Catálogo do parceiro</h2>
-        <ProductsManager partnerId={partner.id} exclusives={exclusives} shared={shared} />
+        <ProductsManager
+          partnerId={partner.id}
+          exclusives={exclusives}
+          shared={shared}
+          sections={sectionsByProduct}
+        />
       </section>
 
       <section className="rounded-xl border border-night-100 p-6">

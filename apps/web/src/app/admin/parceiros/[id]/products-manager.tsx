@@ -6,6 +6,7 @@ import {
   toggleSharedProductAction,
   setAllSharedProductsAction,
   setExclusiveProductAction,
+  setProductPlacementAction,
 } from '@/lib/partners/partner-actions'
 
 export interface ProductLite {
@@ -22,14 +23,17 @@ export function ProductsManager({
   partnerId,
   exclusives,
   shared,
+  sections,
 }: {
   partnerId: string
   exclusives: ProductLite[]
   shared: SharedProduct[]
+  sections: Record<string, string[]>
 }) {
   const router = useRouter()
   const [pending, startTransition] = useTransition()
   const [addId, setAddId] = useState('')
+  const onStore: ProductLite[] = [...exclusives, ...shared.filter((s) => s.enabled)]
 
   function run(fn: () => Promise<void>) {
     startTransition(async () => {
@@ -150,6 +154,60 @@ export function ProductsManager({
                     )}
                   </span>
                 </label>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div>
+        <h3 className="mb-2 font-semibold">Página inicial desta loja</h3>
+        <p className="mb-3 text-sm text-night-500">
+          Escolha o que aparece em Destaques e Mais vendidos na home deste parceiro.
+        </p>
+        {onStore.length === 0 ? (
+          <p className="text-sm text-night-500">Nenhum produto nesta vitrine ainda.</p>
+        ) : (
+          <ul className="divide-y divide-night-100 rounded-lg border border-night-100">
+            {onStore.map((p) => (
+              <li
+                key={p.id}
+                className="flex flex-wrap items-center justify-between gap-2 px-4 py-2 text-sm"
+              >
+                <span>{p.name}</span>
+                <div className="flex items-center gap-4">
+                  <label className="flex items-center gap-1.5 text-xs">
+                    <input
+                      type="checkbox"
+                      disabled={pending}
+                      checked={(sections[p.id] ?? []).includes('destaques')}
+                      onChange={(e) =>
+                        run(() =>
+                          setProductPlacementAction(partnerId, p.id, 'destaques', e.target.checked),
+                        )
+                      }
+                    />
+                    Destaque
+                  </label>
+                  <label className="flex items-center gap-1.5 text-xs">
+                    <input
+                      type="checkbox"
+                      disabled={pending}
+                      checked={(sections[p.id] ?? []).includes('mais_vendidos')}
+                      onChange={(e) =>
+                        run(() =>
+                          setProductPlacementAction(
+                            partnerId,
+                            p.id,
+                            'mais_vendidos',
+                            e.target.checked,
+                          ),
+                        )
+                      }
+                    />
+                    Mais vendido
+                  </label>
+                </div>
               </li>
             ))}
           </ul>

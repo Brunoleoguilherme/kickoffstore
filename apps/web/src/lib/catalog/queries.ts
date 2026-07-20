@@ -125,11 +125,18 @@ export async function listSectionProducts(section: string, limit = 4): Promise<P
   const supabase = createClient()
   const partner = await getActivePartner()
 
+  // IDs marcados para essa seção NESTA vitrine (loja principal = partner_id null).
+  let placements = supabase.from('product_placements').select('product_id').eq('section', section)
+  placements = partner ? placements.eq('partner_id', partner.id) : placements.is('partner_id', null)
+  const { data: pl } = await placements
+  const ids = ((pl ?? []) as Array<{ product_id: string }>).map((r) => r.product_id)
+  if (ids.length === 0) return []
+
   let query = supabase
     .from('products')
     .select(PRODUCT_SELECT)
     .eq('status', 'active')
-    .contains('home_sections', [section])
+    .in('id', ids)
 
   if (partner) {
     const shared = await partnerSharedProductIds(partner.id)

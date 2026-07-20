@@ -88,6 +88,15 @@ export async function updateProductAction(
       .insert(p.partners.map((partnerId) => ({ partner_id: partnerId, product_id: productId })))
   }
 
+  // Seções da LOJA PRINCIPAL (placements com partner_id null). As seções por
+  // parceiro são geridas na tela do parceiro.
+  await admin.from('product_placements').delete().eq('product_id', productId).is('partner_id', null)
+  if (p.sections.length > 0) {
+    await admin
+      .from('product_placements')
+      .insert(p.sections.map((section) => ({ product_id: productId, partner_id: null, section })))
+  }
+
   const actor = await getUser()
   await writeAuditLog({
     actorUserId: actor?.id ?? null,

@@ -1677,6 +1677,30 @@ export type Database = {
           },
         ]
       }
+      product_placements: {
+        Row: {
+          created_at: string
+          id: string
+          partner_id: string | null
+          product_id: string
+          section: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          partner_id?: string | null
+          product_id: string
+          section: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          partner_id?: string | null
+          product_id?: string
+          section?: string
+        }
+        Relationships: []
+      }
       products: {
         Row: {
           brand_id: string | null
