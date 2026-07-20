@@ -273,6 +273,37 @@ export async function setPlacementPositionAction(
   revalidatePath(`/admin/parceiros/${partnerId}`)
 }
 
+/**
+ * Salva o board de posicionamento da vitrine: substitui todas as placements
+ * deste parceiro pelas listas ordenadas de Destaques e Mais vendidos.
+ */
+export async function setStorePlacementsAction(
+  partnerId: string,
+  destaques: string[],
+  maisVendidos: string[],
+): Promise<void> {
+  await requirePermission('catalog.write')
+  if (!partnerId) return
+  const admin = createAdminClient()
+  await admin.from('product_placements').delete().eq('partner_id', partnerId)
+  const rows = [
+    ...destaques.map((product_id, i) => ({
+      product_id,
+      partner_id: partnerId,
+      section: 'destaques',
+      position: i,
+    })),
+    ...maisVendidos.map((product_id, i) => ({
+      product_id,
+      partner_id: partnerId,
+      section: 'mais_vendidos',
+      position: i,
+    })),
+  ]
+  if (rows.length > 0) await admin.from('product_placements').insert(rows)
+  revalidatePath(`/admin/parceiros/${partnerId}`)
+}
+
 /** Marca ou desmarca TODOS os produtos compartilhados de uma vez. */
 export async function setAllSharedProductsAction(
   partnerId: string,

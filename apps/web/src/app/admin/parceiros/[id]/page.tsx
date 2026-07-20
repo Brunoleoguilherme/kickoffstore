@@ -6,6 +6,8 @@ import { requirePermission } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { PartnerEditForm } from './edit-form'
 import { ProductsManager, type ProductLite, type SharedProduct } from './products-manager'
+import { PlacementBoard } from './placement-board'
+import { productImageUrl } from '@/lib/catalog/image'
 import { OwnerForm } from './owner-form'
 
 export const metadata: Metadata = { title: 'Parceiro' }
@@ -59,17 +61,6 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
   const enabledIds = new Set(
     ((linkData ?? []) as unknown as Array<{ product_id: string }>).map((l) => l.product_id),
   )
-  const sectionsByProduct: Record<string, string[]> = {}
-  const positionByProduct: Record<string, number> = {}
-  for (const row of (placementData ?? []) as Array<{
-    product_id: string
-    section: string
-    position: number
-  }>) {
-    ;(sectionsByProduct[row.product_id] ??= []).push(row.section)
-    positionByProduct[row.product_id] = row.position
-  }
-
   // Exclusivos deste parceiro.
   const exclusives: ProductLite[] = products
     .filter((p) => p.partner_id === partner.id)
@@ -79,6 +70,40 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
   const shared: SharedProduct[] = products
     .filter((p) => p.partner_id === null)
     .map((p) => ({ id: p.id, name: p.name, status: p.status, enabled: enabledIds.has(p.id) }))
+
+  // Board de posicionamento: produtos na vitrine (exclusivos + compartilhados ativos) + imagens.
+  const onStore: ProductLite[] = [...exclusives, ...shared.filter((s) => s.enabled)]
+  const onStoreIds = onStore.map((p) => p.id)
+  const { data: imgData } = await admin
+    .from('product_images')
+    .select('product_id, storage_path, is_primary')
+    .in('product_id', onStoreIds.length ? onStoreIds : ['00000000-0000-0000-0000-000000000000'])
+  const imageByProduct: Record<string, string> = {}
+  for (const img of (imgData ?? []) as Array<{
+    product_id: string
+    storage_path: string
+    is_primary: boolean
+  }>) {
+    if (!imageByProduct[img.product_id] || img.is_primary)
+      imageByProduct[img.product_id] = img.storage_path
+  }
+  const boardItems = onStore.map((p) => {
+    const path = imageByProduct[p.id]
+    return { id: p.id, name: p.name, image: path ? productImageUrl(path) : null }
+  })
+  const placementsAll = (placementData ?? []) as Array<{
+    product_id: string
+    section: string
+    position: number
+  }>
+  const boardDestaques = placementsAll
+    .filter((r) => r.section === 'destaques')
+    .sort((a, b) => a.position - b.position)
+    .map((r) => r.product_id)
+  const boardMaisVendidos = placementsAll
+    .filter((r) => r.section === 'mais_vendidos')
+    .sort((a, b) => a.position - b.position)
+    .map((r) => r.product_id)
 
   return (
     <div className="max-w-4xl space-y-8">
@@ -127,12 +152,16 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
 
       <section className="rounded-xl border border-night-100 p-6">
         <h2 className="mb-4 font-semibold">Catálogo do parceiro</h2>
-        <ProductsManager
+        <ProductsManager partnerId={partner.id} exclusives={exclusives} shared={shared} />
+      </section>
+
+      <section className="rounded-xl border border-night-100 p-6">
+        <h2 className="mb-4 font-semibold">Página inicial desta loja</h2>
+        <PlacementBoard
           partnerId={partner.id}
-          exclusives={exclusives}
-          shared={shared}
-          sections={sectionsByProduct}
-          positions={positionByProduct}
+          items={boardItems}
+          initialDestaques={boardDestaques}
+          initialMaisVendidos={boardMaisVendidos}
         />
       </section>
 
