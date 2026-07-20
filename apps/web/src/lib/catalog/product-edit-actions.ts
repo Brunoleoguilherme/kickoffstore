@@ -20,6 +20,8 @@ const optionalId = z
   .optional()
   .or(z.literal('').transform(() => undefined))
 
+const SECTIONS = ['destaques', 'mais_vendidos'] as const
+
 const updateSchema = z.object({
   name: z.string().min(1).max(200),
   shortDescription: z.string().max(400).optional(),
@@ -28,6 +30,9 @@ const updateSchema = z.object({
   categoryId: optionalId,
   brandId: optionalId,
   sportId: optionalId,
+  showInMain: z.boolean().default(false),
+  sections: z.array(z.enum(SECTIONS)).default([]),
+  partners: z.array(z.string().uuid()).default([]),
 })
 
 /** Update a product's basic fields (admin, catalog.write). */
@@ -50,6 +55,9 @@ export async function updateProductAction(
     categoryId: formData.get('categoryId') ?? '',
     brandId: formData.get('brandId') ?? '',
     sportId: formData.get('sportId') ?? '',
+    showInMain: formData.get('showInMain') === '1',
+    sections: formData.getAll('sections').map(String),
+    partners: formData.getAll('partners').map(String),
   })
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? 'Dados inválidos' }
 
@@ -65,10 +73,20 @@ export async function updateProductAction(
       primary_category_id: p.categoryId ?? null,
       brand_id: p.brandId ?? null,
       sport_id: p.sportId ?? null,
+      show_in_main: p.showInMain,
+      home_sections: p.sections,
       published_at: p.status === 'active' ? new Date().toISOString() : null,
     })
     .eq('id', productId)
   if (error) return { error: 'Falha ao atualizar o produto.' }
+
+  // Sincroniza em quais lojas de parceiro o produto aparece.
+  await admin.from('partner_products').delete().eq('product_id', productId)
+  if (p.partners.length > 0) {
+    await admin
+      .from('partner_products')
+      .insert(p.partners.map((partnerId) => ({ partner_id: partnerId, product_id: productId })))
+  }
 
   const actor = await getUser()
   await writeAuditLog({
@@ -82,6 +100,7 @@ export async function updateProductAction(
   revalidatePath(`/admin/produtos/${productId}/editar`)
   revalidatePath('/admin/produtos')
   revalidatePath('/produtos')
+  revalidatePath('/')
   return { success: 'Produto atualizado.' }
 }
 

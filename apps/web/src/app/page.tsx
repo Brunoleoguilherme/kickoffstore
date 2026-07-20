@@ -1,5 +1,5 @@
 import { isSupabaseConfigured } from '@kickoffstore/validation'
-import { listActiveProducts } from '@/lib/catalog/queries'
+import { listSectionProducts } from '@/lib/catalog/queries'
 import { getActivePartner } from '@/lib/partners/context'
 import { AnnouncementBar } from '@/components/home/announcement-bar'
 import { SiteHeader } from '@/components/home/site-header'
@@ -17,9 +17,8 @@ export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
   const configured = isSupabaseConfigured()
-  const products = configured ? await listActiveProducts(12) : []
-  const lancamentos = products.slice(0, 4)
-  const maisVendidos = products.slice(4, 8)
+  const lancamentos = configured ? await listSectionProducts('destaques', 4) : []
+  const maisVendidos = configured ? await listSectionProducts('mais_vendidos', 4) : []
   const partner = await getActivePartner()
 
   // Loja de parceiro: página enxuta com a marca do time (sem seções da Kickoffstore).

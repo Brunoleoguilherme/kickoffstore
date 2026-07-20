@@ -23,16 +23,29 @@ interface Props {
     categoryId: string
     brandId: string
     sportId: string
+    showInMain: boolean
+    sections: string[]
   }
   categories: Taxon[]
   brands: Taxon[]
   sports: Taxon[]
+  partners: Taxon[]
+  selectedPartnerIds: string[]
 }
 
 const initialState: ActionState = {}
 const selectClass = 'flex h-11 w-full rounded-md border border-night-100 bg-white px-3 text-sm'
+const checkRow = 'flex items-center gap-2 text-sm'
 
-export function EditForm({ productId, initial, categories, brands, sports }: Props) {
+export function EditForm({
+  productId,
+  initial,
+  categories,
+  brands,
+  sports,
+  partners,
+  selectedPartnerIds,
+}: Props) {
   const action = updateProductAction.bind(null, productId)
   const [state, formAction] = useFormState(action, initialState)
   return (
@@ -101,6 +114,59 @@ export function EditForm({ productId, initial, categories, brands, sports }: Pro
           <option value="archived">Arquivado</option>
         </select>
       </div>
+
+      <div className="rounded-md border border-night-100 p-3">
+        <Label>Seções da página inicial</Label>
+        <p className="mb-2 text-xs text-night-500">Onde o produto aparece na home.</p>
+        <div className="space-y-1.5">
+          <label className={checkRow}>
+            <input
+              type="checkbox"
+              name="sections"
+              value="destaques"
+              defaultChecked={initial.sections.includes('destaques')}
+            />
+            Destaques (topo da home)
+          </label>
+          <label className={checkRow}>
+            <input
+              type="checkbox"
+              name="sections"
+              value="mais_vendidos"
+              defaultChecked={initial.sections.includes('mais_vendidos')}
+            />
+            Mais vendidos
+          </label>
+        </div>
+      </div>
+
+      <div className="rounded-md border border-night-100 p-3">
+        <Label>Lojas onde aparece</Label>
+        <p className="mb-2 text-xs text-night-500">Marque em quais vitrines este produto é exibido.</p>
+        <div className="space-y-1.5">
+          <label className={checkRow}>
+            <input
+              type="checkbox"
+              name="showInMain"
+              value="1"
+              defaultChecked={initial.showInMain}
+            />
+            Loja principal (Kickoffstore)
+          </label>
+          {partners.map((p) => (
+            <label key={p.id} className={checkRow}>
+              <input
+                type="checkbox"
+                name="partners"
+                value={p.id}
+                defaultChecked={selectedPartnerIds.includes(p.id)}
+              />
+              {p.name}
+            </label>
+          ))}
+        </div>
+      </div>
+
       <SubmitButton>Salvar alterações</SubmitButton>
     </form>
   )

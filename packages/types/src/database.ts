@@ -1683,6 +1683,7 @@ export type Database = {
           created_at: string
           description: string | null
           gender: string | null
+          home_sections: string[]
           id: string
           name: string
           organization_id: string
@@ -1693,6 +1694,7 @@ export type Database = {
           seo_description: string | null
           seo_title: string | null
           short_description: string | null
+          show_in_main: boolean
           slug: string
           sport_id: string | null
           status: string
@@ -1703,6 +1705,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           gender?: string | null
+          home_sections?: string[]
           id?: string
           name: string
           organization_id: string
@@ -1713,6 +1716,7 @@ export type Database = {
           seo_description?: string | null
           seo_title?: string | null
           short_description?: string | null
+          show_in_main?: boolean
           slug: string
           sport_id?: string | null
           status?: string
@@ -1723,6 +1727,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           gender?: string | null
+          home_sections?: string[]
           id?: string
           name?: string
           organization_id?: string
@@ -1733,6 +1738,7 @@ export type Database = {
           seo_description?: string | null
           seo_title?: string | null
           short_description?: string | null
+          show_in_main?: boolean
           slug?: string
           sport_id?: string | null
           status?: string

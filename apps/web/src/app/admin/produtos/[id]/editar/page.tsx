@@ -23,6 +23,8 @@ interface RawProduct {
   brand_id: string | null
   primary_category_id: string | null
   sport_id: string | null
+  show_in_main: boolean
+  home_sections: string[] | null
   product_images: Array<{ id: string; storage_path: string; alt_text: string; is_primary: boolean; sort_order: number }>
   product_variants: Array<{
     id: string
@@ -48,7 +50,7 @@ export default async function EditarProdutoPage({ params }: { params: { id: stri
   const { data } = await supabase
     .from('products')
     .select(
-      'id, name, slug, short_description, description, status, brand_id, primary_category_id, sport_id, product_images(id, storage_path, alt_text, is_primary, sort_order), product_variants(id, sku, color, size, price_cents, weight_grams, width_cm, height_cm, length_cm)',
+      'id, name, slug, short_description, description, status, brand_id, primary_category_id, sport_id, show_in_main, home_sections, product_images(id, storage_path, alt_text, is_primary, sort_order), product_variants(id, sku, color, size, price_cents, weight_grams, width_cm, height_cm, length_cm)',
     )
     .eq('id', params.id)
     .maybeSingle()
@@ -58,14 +60,20 @@ export default async function EditarProdutoPage({ params }: { params: { id: stri
 
   // Listas para os seletores (serviço, sempre carregam no admin).
   const admin = createAdminClient()
-  const [catsRes, brandsRes, sportsRes] = await Promise.all([
+  const [catsRes, brandsRes, sportsRes, partnersRes, ppRes] = await Promise.all([
     admin.from('categories').select('id, name').order('name'),
     admin.from('brands').select('id, name').order('name'),
     admin.from('sports').select('id, name').order('name'),
+    admin.from('partners').select('id, name').eq('active', true).order('name'),
+    admin.from('partner_products').select('partner_id').eq('product_id', params.id),
   ])
   const categories = (catsRes.data ?? []) as unknown as Taxon[]
   const brands = (brandsRes.data ?? []) as unknown as Taxon[]
   const sports = (sportsRes.data ?? []) as unknown as Taxon[]
+  const partners = (partnersRes.data ?? []) as unknown as Taxon[]
+  const selectedPartnerIds = ((ppRes.data ?? []) as Array<{ partner_id: string }>).map(
+    (r) => r.partner_id,
+  )
 
   const images: ImageItem[] = p.product_images
     .slice()
@@ -109,10 +117,14 @@ export default async function EditarProdutoPage({ params }: { params: { id: stri
               categoryId: p.primary_category_id ?? '',
               brandId: p.brand_id ?? '',
               sportId: p.sport_id ?? '',
+              showInMain: p.show_in_main,
+              sections: p.home_sections ?? [],
             }}
             categories={categories}
             brands={brands}
             sports={sports}
+            partners={partners}
+            selectedPartnerIds={selectedPartnerIds}
           />
         </section>
 

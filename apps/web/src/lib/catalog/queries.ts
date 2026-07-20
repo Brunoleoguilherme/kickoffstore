@@ -30,6 +30,7 @@ interface RawProduct {
   seo_title: string | null
   seo_description: string | null
   partner_id: string | null
+  show_in_main: boolean
   brands: { name: string } | null
   product_variants: RawVariant[]
   product_images: RawImage[]
@@ -53,18 +54,21 @@ function toSummary(p: RawProduct): ProductSummary {
 }
 
 const PRODUCT_SELECT =
-  'id, name, slug, short_description, description, seo_title, seo_description, partner_id, brands(name), product_variants(id, sku, name, color, size, price_cents, compare_at_price_cents, active), product_images(storage_path, alt_text, is_primary, sort_order)'
+  'id, name, slug, short_description, description, seo_title, seo_description, partner_id, show_in_main, brands(name), product_variants(id, sku, name, color, size, price_cents, compare_at_price_cents, active), product_images(storage_path, alt_text, is_primary, sort_order)'
 
 /**
  * Regra de visibilidade por vitrine:
  *  - Loja principal (sem parceiro): só produtos SEM dono (partner_id null).
  *  - Vitrine de parceiro: exclusivos dele (partner_id = parceiro) OU compartilhados habilitados.
  */
-async function visibleToRequest(p: { id: string; partner_id: string | null }): Promise<boolean> {
+async function visibleToRequest(p: {
+  id: string
+  partner_id: string | null
+  show_in_main: boolean
+}): Promise<boolean> {
   const partner = await getActivePartner()
-  if (!partner) return p.partner_id === null
+  if (!partner) return p.show_in_main === true
   if (p.partner_id === partner.id) return true
-  if (p.partner_id !== null) return false
   const shared = await partnerSharedProductIds(partner.id)
   return shared.includes(p.id)
 }
@@ -105,12 +109,39 @@ export async function listActiveProducts(limit = 24): Promise<ProductSummary[]> 
     if (shared.length > 0) orParts.push(`id.in.(${shared.join(',')})`)
     query = query.or(orParts.join(','))
   } else {
-    query = query.is('partner_id', null)
+    query = query.eq('show_in_main', true)
   }
 
   const { data } = await query.order('published_at', { ascending: false }).limit(limit)
   const rows = (data ?? []) as unknown as RawProduct[]
   return rows.map(toSummary)
+}
+
+/**
+ * Lista produtos ativos marcados para uma seção da home ('destaques' | 'mais_vendidos'),
+ * respeitando a vitrine atual (loja principal ou de parceiro).
+ */
+export async function listSectionProducts(section: string, limit = 4): Promise<ProductSummary[]> {
+  const supabase = createClient()
+  const partner = await getActivePartner()
+
+  let query = supabase
+    .from('products')
+    .select(PRODUCT_SELECT)
+    .eq('status', 'active')
+    .contains('home_sections', [section])
+
+  if (partner) {
+    const shared = await partnerSharedProductIds(partner.id)
+    const orParts = [`partner_id.eq.${partner.id}`]
+    if (shared.length > 0) orParts.push(`id.in.(${shared.join(',')})`)
+    query = query.or(orParts.join(','))
+  } else {
+    query = query.eq('show_in_main', true)
+  }
+
+  const { data } = await query.order('published_at', { ascending: false }).limit(limit)
+  return ((data ?? []) as unknown as RawProduct[]).map(toSummary)
 }
 
 export async function getProductBySlug(slug: string): Promise<ProductDetail | null> {
