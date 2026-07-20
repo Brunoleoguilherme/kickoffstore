@@ -125,12 +125,17 @@ export async function listSectionProducts(section: string, limit = 4): Promise<P
   const supabase = createClient()
   const partner = await getActivePartner()
 
-  // IDs marcados para essa seção NESTA vitrine (loja principal = partner_id null).
-  let placements = supabase.from('product_placements').select('product_id').eq('section', section)
+  // IDs + posição marcados para essa seção NESTA vitrine (loja principal = partner_id null).
+  let placements = supabase
+    .from('product_placements')
+    .select('product_id, position')
+    .eq('section', section)
   placements = partner ? placements.eq('partner_id', partner.id) : placements.is('partner_id', null)
   const { data: pl } = await placements
-  const ids = ((pl ?? []) as Array<{ product_id: string }>).map((r) => r.product_id)
-  if (ids.length === 0) return []
+  const rows = (pl ?? []) as Array<{ product_id: string; position: number }>
+  if (rows.length === 0) return []
+  const posById = new Map(rows.map((r) => [r.product_id, r.position]))
+  const ids = rows.map((r) => r.product_id)
 
   let query = supabase
     .from('products')
@@ -147,8 +152,10 @@ export async function listSectionProducts(section: string, limit = 4): Promise<P
     query = query.eq('show_in_main', true)
   }
 
-  const { data } = await query.order('published_at', { ascending: false }).limit(limit)
-  return ((data ?? []) as unknown as RawProduct[]).map(toSummary)
+  const { data } = await query
+  const products = (data ?? []) as unknown as RawProduct[]
+  products.sort((a, b) => (posById.get(a.id) ?? 0) - (posById.get(b.id) ?? 0))
+  return products.slice(0, limit).map(toSummary)
 }
 
 export async function getProductBySlug(slug: string): Promise<ProductDetail | null> {

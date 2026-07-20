@@ -7,6 +7,7 @@ import {
   setAllSharedProductsAction,
   setExclusiveProductAction,
   setProductPlacementAction,
+  setPlacementPositionAction,
 } from '@/lib/partners/partner-actions'
 
 export interface ProductLite {
@@ -24,11 +25,13 @@ export function ProductsManager({
   exclusives,
   shared,
   sections,
+  positions,
 }: {
   partnerId: string
   exclusives: ProductLite[]
   shared: SharedProduct[]
   sections: Record<string, string[]>
+  positions: Record<string, number>
 }) {
   const router = useRouter()
   const [pending, startTransition] = useTransition()
@@ -176,6 +179,21 @@ export function ProductsManager({
               >
                 <span>{p.name}</span>
                 <div className="flex items-center gap-4">
+                  <label className="flex items-center gap-1.5 text-xs" title="Ordem na linha (menor = primeiro)">
+                    Ordem
+                    <input
+                      type="number"
+                      min={0}
+                      defaultValue={positions[p.id] ?? 0}
+                      disabled={pending}
+                      onBlur={(e) =>
+                        run(() =>
+                          setPlacementPositionAction(partnerId, p.id, Number(e.target.value)),
+                        )
+                      }
+                      className="w-14 rounded border border-night-200 px-1.5 py-0.5"
+                    />
+                  </label>
                   <label className="flex items-center gap-1.5 text-xs">
                     <input
                       type="checkbox"

@@ -240,10 +240,36 @@ export async function setProductPlacementAction(
     .eq('partner_id', partnerId)
     .eq('section', section)
   if (on) {
+    // Herda a posição que o produto já tem nesta loja (para as seções ficarem coerentes).
+    const { data: existing } = await admin
+      .from('product_placements')
+      .select('position')
+      .eq('product_id', productId)
+      .eq('partner_id', partnerId)
+      .limit(1)
+      .maybeSingle()
+    const position = (existing as { position: number } | null)?.position ?? 0
     await admin
       .from('product_placements')
-      .insert({ product_id: productId, partner_id: partnerId, section })
+      .insert({ product_id: productId, partner_id: partnerId, section, position })
   }
+  revalidatePath(`/admin/parceiros/${partnerId}`)
+}
+
+/** Define a posição (ordem) de um produto na vitrine deste parceiro. Menor = primeiro. */
+export async function setPlacementPositionAction(
+  partnerId: string,
+  productId: string,
+  position: number,
+): Promise<void> {
+  await requirePermission('catalog.write')
+  if (!partnerId || !productId) return
+  const admin = createAdminClient()
+  await admin
+    .from('product_placements')
+    .update({ position: Math.max(0, Math.trunc(Number(position) || 0)) })
+    .eq('product_id', productId)
+    .eq('partner_id', partnerId)
   revalidatePath(`/admin/parceiros/${partnerId}`)
 }
 

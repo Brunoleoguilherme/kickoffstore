@@ -50,15 +50,24 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
   const [{ data: productsData }, { data: linkData }, { data: placementData }] = await Promise.all([
     admin.from('products').select('id, name, status, partner_id').order('name', { ascending: true }),
     admin.from('partner_products').select('product_id').eq('partner_id', partner.id),
-    admin.from('product_placements').select('product_id, section').eq('partner_id', partner.id),
+    admin
+      .from('product_placements')
+      .select('product_id, section, position')
+      .eq('partner_id', partner.id),
   ])
   const products = (productsData ?? []) as unknown as ProductRow[]
   const enabledIds = new Set(
     ((linkData ?? []) as unknown as Array<{ product_id: string }>).map((l) => l.product_id),
   )
   const sectionsByProduct: Record<string, string[]> = {}
-  for (const row of (placementData ?? []) as Array<{ product_id: string; section: string }>) {
+  const positionByProduct: Record<string, number> = {}
+  for (const row of (placementData ?? []) as Array<{
+    product_id: string
+    section: string
+    position: number
+  }>) {
     ;(sectionsByProduct[row.product_id] ??= []).push(row.section)
+    positionByProduct[row.product_id] = row.position
   }
 
   // Exclusivos deste parceiro.
@@ -86,7 +95,14 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
             {partner.active ? 'ativo' : 'inativo'}
           </span>
         </div>
-        <p className="mt-1 text-sm text-night-500">{partner.slug}.kickoffstore.com.br</p>
+        <a
+          href={`https://${partner.slug}.kickoffstore.com.br`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
+        >
+          {partner.slug}.kickoffstore.com.br <span aria-hidden>↗</span>
+        </a>
       </div>
 
       <section className="rounded-xl border border-night-100 p-6">
@@ -116,6 +132,7 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
           exclusives={exclusives}
           shared={shared}
           sections={sectionsByProduct}
+          positions={positionByProduct}
         />
       </section>
 

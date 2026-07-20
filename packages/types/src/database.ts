@@ -1682,6 +1682,7 @@ export type Database = {
           created_at: string
           id: string
           partner_id: string | null
+          position: number
           product_id: string
           section: string
         }
@@ -1689,6 +1690,7 @@ export type Database = {
           created_at?: string
           id?: string
           partner_id?: string | null
+          position?: number
           product_id: string
           section: string
         }
@@ -1696,6 +1698,7 @@ export type Database = {
           created_at?: string
           id?: string
           partner_id?: string | null
+          position?: number
           product_id?: string
           section?: string
         }
