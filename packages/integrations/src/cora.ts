@@ -1,5 +1,5 @@
 // ════════════════════════════════════════════════════════════════
-//  Kickoffstore — Cliente Cora (Pix via Integração Direta, mTLS)
+//  Clube da Estampa — Cliente Cora (Pix via Integração Direta, mTLS)
 //  Portado do projeto BFWC. A Cora autentica com certificado +
 //  private key (mutual TLS). Usamos o módulo nativo `https` do Node.
 //

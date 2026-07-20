@@ -1,8 +1,8 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { canTransitionOrder, type OrderStatus, type PermissionCode } from '@kickoffstore/types'
-import { refundCheckoutSession } from '@kickoffstore/integrations'
+import { canTransitionOrder, type OrderStatus, type PermissionCode } from '@clubedaestampa/types'
+import { refundCheckoutSession } from '@clubedaestampa/integrations'
 import { requirePermission } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { notifyOrderShipped, notifyOrderDelivered, restockOrder } from '@/lib/payments/fulfillment'

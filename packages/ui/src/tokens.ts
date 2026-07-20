@@ -1,5 +1,5 @@
 /**
- * Kickoffstore design tokens — Brand Book v1.0.
+ * Clube da Estampa design tokens — Brand Book v1.0.
  * Dark, premium, high-contrast identity: absolute black + graphite base,
  * gold (dourado) as the premium accent, brushed silver and white for contrast.
  * Shared by web (Tailwind) and mobile (Expo).

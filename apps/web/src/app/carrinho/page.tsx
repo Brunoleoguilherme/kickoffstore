@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import { AnnouncementBar } from '@/components/home/announcement-bar'
 import { SiteHeader } from '@/components/home/site-header'
 import { SiteFooter } from '@/components/home/site-footer'

@@ -1,17 +1,17 @@
 // ════════════════════════════════════════════════════════════════
-//  Kickoffstore — Cliente Resend (REST via fetch, sem SDK)
+//  Clube da Estampa — Cliente Resend (REST via fetch, sem SDK)
 //  Zero dependências. Usado para e-mails transacionais (confirmação de pedido).
 //
 //  Variáveis de ambiente:
 //    RESEND_API_KEY    = re_...
-//    RESEND_FROM_EMAIL = "Kickoffstore <pedidos@seudominio.com.br>"
+//    RESEND_FROM_EMAIL = "Clube da Estampa <pedidos@seudominio.com.br>"
 // ════════════════════════════════════════════════════════════════
 import type {
   EmailProvider,
   SendEmailInput as SendEmailContract,
   SendEmailResult,
   WebhookVerificationInput,
-} from '@kickoffstore/types'
+} from '@clubedaestampa/types'
 import { IntegrationNotConfiguredError } from './errors'
 
 const RESEND_API = 'https://api.resend.com'

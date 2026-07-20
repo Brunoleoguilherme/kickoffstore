@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
-import { ORDER_TRANSITIONS, type OrderStatus } from '@kickoffstore/types'
-import { formatBRL } from '@kickoffstore/ui'
-import { isMelhorEnvioConfigured } from '@kickoffstore/integrations'
+import { ORDER_TRANSITIONS, type OrderStatus } from '@clubedaestampa/types'
+import { formatBRL } from '@clubedaestampa/ui'
+import { isMelhorEnvioConfigured } from '@clubedaestampa/integrations'
 import { requirePermission } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { StatusForm } from './status-form'
@@ -158,7 +158,7 @@ export default async function PedidoDetailPage({ params }: { params: { id: strin
   const meEnabled = isMelhorEnvioConfigured()
   const meServiceId = order.shipping_method_snapshot?.serviceId
 
-  let storeName = 'Kickoffstore'
+  let storeName = 'Clube da Estampa'
   if (order.partner_id) {
     const { data: pd } = await admin
       .from('partners')

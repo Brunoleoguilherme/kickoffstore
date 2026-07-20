@@ -5,7 +5,7 @@
 :root {
   color-scheme: light;
 
-  /* Escala "brand" padrão (Dourado Kickoffstore) em canais RGB.
+  /* Escala "brand" padrão (Dourado Clube da Estampa) em canais RGB.
      Parceiros sobrescrevem estes valores por subdomínio (tema white-label). */
   --brand-50: 251 246 233;
   --brand-100: 247 235 199;
@@ -28,7 +28,7 @@ body {
   min-height: 100dvh;
 }
 
-/* ---- Brand motion (Kickoffstore) ---- */
+/* ---- Brand motion (Clube da Estampa) ---- */
 @keyframes kof-fade-up {
   from {
     opacity: 0;

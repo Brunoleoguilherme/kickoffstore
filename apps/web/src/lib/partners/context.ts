@@ -17,7 +17,7 @@ export interface ActivePartner {
   youtube: string | null
 }
 
-const ROOT_DOMAIN = 'kickoffstore.com.br'
+const ROOT_DOMAIN = 'clubedaestampa.com.br'
 const RESERVED = new Set(['www', 'admin', 'app', 'api', 'loja'])
 
 /** Extrai o slug do parceiro a partir do host (subdomínio). Null = loja principal. */

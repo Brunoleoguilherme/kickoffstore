@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Search } from 'lucide-react'
-import { isSupabaseConfigured } from '@kickoffstore/validation'
+import { isSupabaseConfigured } from '@clubedaestampa/validation'
 import { listActiveProducts, searchProducts } from '@/lib/catalog/queries'
 import { AnnouncementBar } from '@/components/home/announcement-bar'
 import { SiteHeader } from '@/components/home/site-header'
@@ -9,7 +9,7 @@ import { HomeProductCard } from '@/components/home/product-card'
 
 export const metadata: Metadata = {
   title: 'Produtos',
-  description: 'Explore o catálogo esportivo premium da Kickoffstore.',
+  description: 'Explore o catálogo esportivo premium do Clube da Estampa.',
 }
 
 export default async function ProdutosPage({ searchParams }: { searchParams: { q?: string } }) {

@@ -29,7 +29,7 @@ export default async function ParceirosPage() {
       <div>
         <h1 className="text-2xl font-bold">Parceiros</h1>
         <p className="text-sm text-night-500">
-          Lojas white-label por subdomínio (ex.: <code>bhwolves.kickoffstore.com.br</code>). Cada
+          Lojas white-label por subdomínio (ex.: <code>bhwolves.clubedaestampa.com.br</code>). Cada
           parceiro tem sua marca e seu catálogo; o estoque e os pedidos são centrais.
         </p>
       </div>
@@ -64,7 +64,7 @@ export default async function ParceirosPage() {
                       {p.name}
                     </span>
                   </td>
-                  <td className="px-4 py-2 text-night-500">{p.slug}.kickoffstore.com.br</td>
+                  <td className="px-4 py-2 text-night-500">{p.slug}.clubedaestampa.com.br</td>
                   <td className="px-4 py-2">
                     <span className="rounded-full bg-night-50 px-2 py-0.5 text-xs">
                       {p.active ? 'ativo' : 'inativo'}

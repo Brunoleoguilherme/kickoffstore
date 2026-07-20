@@ -1,6 +1,6 @@
 import 'server-only'
 import { createAdminClient } from '@/lib/supabase/admin'
-import type { Json } from '@kickoffstore/types'
+import type { Json } from '@clubedaestampa/types'
 
 export interface AuditInput {
   organizationId?: string | null

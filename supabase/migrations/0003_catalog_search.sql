@@ -1,4 +1,4 @@
--- Kickoffstore — Catalog search & public-safety (Fase 3)
+-- Clube da Estampa — Catalog search & public-safety (Fase 3)
 -- Append-only migration. Depends on 0001 and 0002.
 
 -- 1) Protect cost from the public/data API (CLAUDE.md: "custos não aparecem na API pública").

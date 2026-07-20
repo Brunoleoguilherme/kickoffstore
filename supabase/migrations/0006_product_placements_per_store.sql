@@ -1,6 +1,6 @@
 -- Posicionamento de produto por vitrine (loja principal ou de parceiro).
 -- Permite marcar um produto como Destaque/Mais vendido em UMA loja específica.
--- partner_id NULL = loja principal (Kickoffstore). Append-only (CLAUDE.md).
+-- partner_id NULL = loja principal (Clube da Estampa). Append-only (CLAUDE.md).
 
 create table if not exists product_placements (
   id uuid primary key default gen_random_uuid(),

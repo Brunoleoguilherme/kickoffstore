@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { requireUser } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import {
   REVENUE_STATUSES,
   currentMonthKey,

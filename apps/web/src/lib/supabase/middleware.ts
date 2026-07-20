@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
-import type { Database } from '@kickoffstore/types'
-import { clientEnv } from '@kickoffstore/validation'
+import type { Database } from '@clubedaestampa/types'
+import { clientEnv } from '@clubedaestampa/validation'
 
 /** Refreshes the Supabase session cookie on each request (SSR requirement). */
 export async function updateSession(request: NextRequest) {

@@ -1,8 +1,8 @@
-# Kickoffstore — Blueprint técnico e operacional
+# Clube da Estampa — Blueprint técnico e operacional
 
 Este repositório é um **manual executável para Claude Code**, VS Code, GitHub, Vercel, Supabase, Resend e Expo/EAS. Ele descreve como construir uma operação completa de comércio eletrônico esportivo com site, aplicativo, painel administrativo, catálogo, estoque, compras, notas fiscais, pagamentos, logística, marketing e atendimento.
 
-> A Centauro foi usada apenas como referência funcional de um grande e-commerce esportivo. Não copie identidade visual, textos, imagens, código, estrutura proprietária ou elementos protegidos. A Kickoffstore deve possuir marca, experiência e conteúdo próprios.
+> A Centauro foi usada apenas como referência funcional de um grande e-commerce esportivo. Não copie identidade visual, textos, imagens, código, estrutura proprietária ou elementos protegidos. A Clube da Estampa deve possuir marca, experiência e conteúdo próprios.
 
 ## O que está incluído
 
@@ -48,7 +48,7 @@ Este repositório é um **manual executável para Claude Code**, VS Code, GitHub
 ## Arquitetura de repositório recomendada
 
 ```text
-kickoffstore/
+clubedaestampa/
 ├─ apps/
 │  ├─ web/                     # Next.js: loja + painel administrativo
 │  └─ mobile/                  # Expo: app do cliente

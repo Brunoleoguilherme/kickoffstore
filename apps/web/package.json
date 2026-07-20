@@ -1,5 +1,5 @@
 {
-  "name": "@kickoffstore/web",
+  "name": "@clubedaestampa/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,10 +11,10 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@kickoffstore/integrations": "workspace:*",
-    "@kickoffstore/types": "workspace:*",
-    "@kickoffstore/ui": "workspace:*",
-    "@kickoffstore/validation": "workspace:*",
+    "@clubedaestampa/integrations": "workspace:*",
+    "@clubedaestampa/types": "workspace:*",
+    "@clubedaestampa/ui": "workspace:*",
+    "@clubedaestampa/validation": "workspace:*",
     "@hookform/resolvers": "3.9.0",
     "@supabase/ssr": "0.5.1",
     "@supabase/supabase-js": "2.45.4",

@@ -1,7 +1,7 @@
 import 'server-only'
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
-import type { Database } from '@kickoffstore/types'
-import { getServerEnv } from '@kickoffstore/validation'
+import type { Database } from '@clubedaestampa/types'
+import { getServerEnv } from '@clubedaestampa/validation'
 
 /**
  * Service-role client. BYPASSES RLS — use only in trusted server code

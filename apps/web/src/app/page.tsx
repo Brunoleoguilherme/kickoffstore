@@ -1,4 +1,4 @@
-import { isSupabaseConfigured } from '@kickoffstore/validation'
+import { isSupabaseConfigured } from '@clubedaestampa/validation'
 import { listSectionProducts } from '@/lib/catalog/queries'
 import { getActivePartner } from '@/lib/partners/context'
 import { AnnouncementBar } from '@/components/home/announcement-bar'
@@ -21,7 +21,7 @@ export default async function HomePage() {
   const maisVendidos = configured ? await listSectionProducts('mais_vendidos', 4) : []
   const partner = await getActivePartner()
 
-  // Loja de parceiro: página enxuta com a marca do time (sem seções da Kickoffstore).
+  // Loja de parceiro: página enxuta com a marca do time (sem seções do Clube da Estampa).
   if (partner) {
     return (
       <div className="overflow-x-hidden bg-night-900 text-white">

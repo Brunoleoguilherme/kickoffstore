@@ -1,5 +1,5 @@
 {
-  "name": "@kickoffstore/integrations",
+  "name": "@clubedaestampa/integrations",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@kickoffstore/types": "workspace:*"
+    "@clubedaestampa/types": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "9.13.0",

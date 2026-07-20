@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getInvoice } from '@kickoffstore/integrations'
+import { getInvoice } from '@clubedaestampa/integrations'
 import { confirmPaymentByExternalId } from '@/lib/payments/orders'
 
 export const runtime = 'nodejs'

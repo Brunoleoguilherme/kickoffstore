@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { discountPercent } from '@kickoffstore/ui'
+import { discountPercent } from '@clubedaestampa/ui'
 
 // Sanity: price-from is the min of variant prices (logic used in queries.toSummary).
 describe('catalog price logic', () => {

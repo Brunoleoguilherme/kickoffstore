@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Kickoffstore",
-    "slug": "kickoffstore",
-    "scheme": "kickoffstore",
+    "name": "Clube da Estampa",
+    "slug": "clubedaestampa",
+    "scheme": "clubedaestampa",
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
@@ -11,8 +11,8 @@
       "resizeMode": "contain",
       "backgroundColor": "#0c161b"
     },
-    "ios": { "supportsTablet": true, "bundleIdentifier": "com.kickoffstore.app" },
-    "android": { "package": "com.kickoffstore.app" },
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.clubedaestampa.app" },
+    "android": { "package": "com.clubedaestampa.app" },
     "plugins": ["expo-router"],
     "extra": {
       "router": { "origin": false }

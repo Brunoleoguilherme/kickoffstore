@@ -1,7 +1,7 @@
 import 'server-only'
 import { redirect } from 'next/navigation'
 import type { User } from '@supabase/supabase-js'
-import type { PermissionCode } from '@kickoffstore/types'
+import type { PermissionCode } from '@clubedaestampa/types'
 import { createClient } from '@/lib/supabase/server'
 
 /** Returns the current user or null. */

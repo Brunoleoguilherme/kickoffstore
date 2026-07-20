@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Check, Heart, Minus, Plus, ShoppingCart } from 'lucide-react'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import { useCart } from './cart-context'
 import { trackAddToCart } from '@/lib/analytics/events'
 

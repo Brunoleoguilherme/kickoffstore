@@ -1,4 +1,4 @@
-import type { PaymentMethod, PaymentProvider } from '@kickoffstore/types'
+import type { PaymentMethod, PaymentProvider } from '@clubedaestampa/types'
 import { MercadoPagoPaymentProvider } from './mercado-pago'
 import { StripePaymentProvider } from './stripe-provider'
 import { CoraPaymentProvider } from './cora-provider'

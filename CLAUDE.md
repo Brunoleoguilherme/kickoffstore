@@ -1,8 +1,8 @@
-# CLAUDE.md — Kickoffstore
+# CLAUDE.md — Clube da Estampa
 
 ## Missão
 
-Construir e manter a Kickoffstore como plataforma própria de comércio eletrônico esportivo, com site, aplicativo e painel operacional. O sistema deve ser seguro, auditável, responsivo, acessível, modular e preparado para crescer sem perder controle financeiro, fiscal ou de estoque.
+Construir e manter a Clube da Estampa como plataforma própria de comércio eletrônico esportivo, com site, aplicativo e painel operacional. O sistema deve ser seguro, auditável, responsivo, acessível, modular e preparado para crescer sem perder controle financeiro, fiscal ou de estoque.
 
 ## Princípios inegociáveis
 

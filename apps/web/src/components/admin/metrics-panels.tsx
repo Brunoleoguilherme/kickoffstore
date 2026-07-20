@@ -1,4 +1,4 @@
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import {
   metricsForMonth,
   seriesForMonths,

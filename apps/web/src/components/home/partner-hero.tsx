@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 
 /**
  * Hero da loja de um parceiro: usa a frase de destaque, o logo e as cores do
- * time (via tema). Sem imagens específicas da Kickoffstore.
+ * time (via tema). Sem imagens específicas do Clube da Estampa.
  *
  * Com `bare`, renderiza apenas o conteúdo (sem fundo e sem a marca d'água) —
  * usado quando o fundo/logo são desenhados por um contêiner externo que cobre

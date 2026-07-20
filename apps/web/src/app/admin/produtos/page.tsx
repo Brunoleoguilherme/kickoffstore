@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { requirePermission } from '@/lib/auth/session'
 import { createClient } from '@/lib/supabase/server'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 
 export const metadata: Metadata = { title: 'Produtos' }
 

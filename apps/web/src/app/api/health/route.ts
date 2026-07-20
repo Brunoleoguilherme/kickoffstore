@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { isSupabaseConfigured } from '@kickoffstore/validation'
+import { isSupabaseConfigured } from '@clubedaestampa/validation'
 
 export const dynamic = 'force-dynamic'
 
@@ -8,7 +8,7 @@ export function GET() {
   return NextResponse.json({
     data: {
       status: 'ok',
-      service: 'kickoffstore-web',
+      service: 'clubedaestampa-web',
       supabaseConfigured: isSupabaseConfigured(),
       timestamp: new Date().toISOString(),
     },

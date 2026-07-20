@@ -7,7 +7,7 @@
 alter table products
   add column if not exists home_sections text[] not null default '{}'::text[];
 
--- 2) Visibilidade explícita na loja principal (kickoffstore).
+-- 2) Visibilidade explícita na loja principal (clubedaestampa).
 --    Antes era derivada de partner_id IS NULL; agora é um flag próprio.
 alter table products
   add column if not exists show_in_main boolean not null default true;

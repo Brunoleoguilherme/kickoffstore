@@ -1,5 +1,5 @@
 {
-  "name": "@kickoffstore/mobile",
+  "name": "@clubedaestampa/mobile",
   "version": "0.1.0",
   "private": true,
   "main": "expo-router/entry",
@@ -12,9 +12,9 @@
     "test": "echo \"no tests yet\" && exit 0"
   },
   "dependencies": {
-    "@kickoffstore/types": "workspace:*",
-    "@kickoffstore/ui": "workspace:*",
-    "@kickoffstore/validation": "workspace:*",
+    "@clubedaestampa/types": "workspace:*",
+    "@clubedaestampa/ui": "workspace:*",
+    "@clubedaestampa/validation": "workspace:*",
     "expo": "~51.0.28",
     "expo-router": "~3.5.23",
     "expo-status-bar": "~1.12.1",

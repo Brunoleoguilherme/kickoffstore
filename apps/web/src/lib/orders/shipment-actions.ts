@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { requirePermission } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { isMelhorEnvioConfigured, buyLabel } from '@kickoffstore/integrations'
+import { isMelhorEnvioConfigured, buyLabel } from '@clubedaestampa/integrations'
 
 export interface ShipmentActionState {
   ok?: boolean

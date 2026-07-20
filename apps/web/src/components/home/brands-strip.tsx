@@ -1,4 +1,4 @@
-const BRANDS = ['Veloce', 'Kickoff', 'Titan', 'Nimbus', 'Aurora', 'Vortex']
+const BRANDS = ['Veloce', 'Clube da Estampa', 'Titan', 'Nimbus', 'Aurora', 'Vortex']
 
 export function BrandsStrip() {
   return (

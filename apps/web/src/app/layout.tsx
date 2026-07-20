@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
-import { clientEnv } from '@kickoffstore/validation'
+import { clientEnv } from '@clubedaestampa/validation'
 import { CartProvider } from '@/components/cart/cart-context'
 import { Analytics } from '@/components/analytics/analytics'
 import { PartnerBar } from '@/components/partners/partner-bar'
@@ -28,8 +28,8 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s · ${name}`,
     },
     description: partner
-      ? `Loja oficial ${partner.name} — powered by Kickoffstore.`
-      : 'Kickoffstore: artigos esportivos premium com curadoria por modalidade. Performance starts here.',
+      ? `Loja oficial ${partner.name} — powered by Clube da Estampa.`
+      : 'Clube da Estampa: artigos esportivos premium com curadoria por modalidade. Performance starts here.',
     metadataBase: new URL(clientEnv.NEXT_PUBLIC_APP_URL),
   }
 }
@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const themeCss = partner ? partnerThemeCss(partner.primaryColor, partner.accentColor) : ''
   const partnerBar = await PartnerBar()
   const brand = {
-    name: partner?.name ?? 'Kickoffstore',
+    name: partner?.name ?? 'Clube da Estampa',
     logoUrl: partner?.logoUrl ?? null,
     isPartner: Boolean(partner),
     tagline: partner?.tagline ?? null,

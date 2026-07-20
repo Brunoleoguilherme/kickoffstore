@@ -2,10 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: [
-    '@kickoffstore/ui',
-    '@kickoffstore/types',
-    '@kickoffstore/validation',
-    '@kickoffstore/integrations',
+    '@clubedaestampa/ui',
+    '@clubedaestampa/types',
+    '@clubedaestampa/validation',
+    '@clubedaestampa/integrations',
   ],
   experimental: {
     serverActions: {

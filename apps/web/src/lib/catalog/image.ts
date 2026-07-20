@@ -1,4 +1,4 @@
-import { clientEnv } from '@kickoffstore/validation'
+import { clientEnv } from '@clubedaestampa/validation'
 
 const BUCKET = 'product-images'
 

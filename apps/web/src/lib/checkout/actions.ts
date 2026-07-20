@@ -1,11 +1,11 @@
 'use server'
 
-import type { Json } from '@kickoffstore/types'
+import type { Json } from '@clubedaestampa/types'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { getDefaultOrganizationId } from '@/lib/org'
 import { getActivePartner } from '@/lib/partners/context'
 import { validateCoupon, type CouponRow } from './coupons'
-import { isMelhorEnvioConfigured, calculateShipping } from '@kickoffstore/integrations'
+import { isMelhorEnvioConfigured, calculateShipping } from '@clubedaestampa/integrations'
 
 export interface CheckoutLineInput {
   variantId: string

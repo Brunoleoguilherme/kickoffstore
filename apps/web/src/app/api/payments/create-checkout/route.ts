@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { randomUUID } from 'crypto'
-import { createCardPaymentProvider } from '@kickoffstore/integrations'
-import { isStripeConfigured } from '@kickoffstore/validation'
+import { createCardPaymentProvider } from '@clubedaestampa/integrations'
+import { isStripeConfigured } from '@clubedaestampa/validation'
 import { loadPayableOrder, resolvePayer, recordPayment } from '@/lib/payments/orders'
 
 export const runtime = 'nodejs'
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
       method: 'credit_card',
       idempotencyKey,
       payer,
-      description: `Pedido Kickoffstore #${order.id.slice(0, 8)}`,
+      description: `Pedido Clube da Estampa #${order.id.slice(0, 8)}`,
     })
 
     await recordPayment({

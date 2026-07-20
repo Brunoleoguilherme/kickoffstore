@@ -1,12 +1,12 @@
 import 'server-only'
-import { sendEmail } from '@kickoffstore/integrations'
+import { sendEmail } from '@clubedaestampa/integrations'
 import {
   isResendConfigured,
   resendFromEmail,
   orderNotificationEmails,
   clientEnv,
-} from '@kickoffstore/validation'
-import { formatBRL } from '@kickoffstore/ui'
+} from '@clubedaestampa/validation'
+import { formatBRL } from '@clubedaestampa/ui'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { productImageUrl } from '@/lib/catalog/image'
 
@@ -21,7 +21,7 @@ interface OrderRow {
   partner_id: string | null
 }
 
-/** Marca usada nos e-mails: Kickoffstore (loja principal) ou o parceiro white-label. */
+/** Marca usada nos e-mails: Clube da Estampa (loja principal) ou o parceiro white-label. */
 interface Brand {
   name: string
   logoUrl: string | null
@@ -256,7 +256,7 @@ async function sendAdminNotification(admin: Admin, order: OrderRow, items: Order
   if (recipients.length === 0) return
 
   try {
-    const kb = kickoffBrand()
+    const kb = clubeBrand()
     const orderBrand = await brandForOrder(admin, order.partner_id)
     const storeLabel = orderBrand.isPartner ? orderBrand.name : 'Loja principal'
     const customerName = order.customer_snapshot?.name ?? '—'
@@ -277,7 +277,7 @@ async function sendAdminNotification(admin: Admin, order: OrderRow, items: Order
        <table role="presentation" cellpadding="0" cellspacing="0" style="margin:16px 0 6px"><tr><td style="border-radius:10px;background:${kb.accent}">
          <a href="${adminUrl}" style="display:inline-block;padding:14px 28px;color:${textOn(kb.accent)};text-decoration:none;font-weight:800;font-size:15px">Ver pedido no painel →</a>
        </td></tr></table>
-       <p style="margin:12px 0 0;color:#8a8a8a;font-size:12px">Notificação interna da equipe Kickoffstore.</p>`,
+       <p style="margin:12px 0 0;color:#8a8a8a;font-size:12px">Notificação interna da equipe Clube da Estampa.</p>`,
       kb,
       `Novo pedido pago ${order.order_number} — ${formatBRL(order.total_cents)}`,
     )
@@ -376,10 +376,10 @@ export async function restockOrder(orderId: string): Promise<void> {
   }
 }
 
-/** Marca da loja principal (Kickoffstore). */
-function kickoffBrand(): Brand {
+/** Marca da loja principal (Clube da Estampa). */
+function clubeBrand(): Brand {
   return {
-    name: 'Kickoffstore',
+    name: 'Clube da Estampa',
     logoUrl: null,
     primary: '#c89a2b',
     accent: '#c89a2b',
@@ -388,9 +388,9 @@ function kickoffBrand(): Brand {
   }
 }
 
-/** Resolve a marca do e-mail a partir do parceiro do pedido (ou Kickoffstore). */
+/** Resolve a marca do e-mail a partir do parceiro do pedido (ou Clube da Estampa). */
 async function brandForOrder(admin: Admin, partnerId: string | null): Promise<Brand> {
-  const fallback = kickoffBrand()
+  const fallback = clubeBrand()
   if (!partnerId) return fallback
   try {
     const { data } = await admin
@@ -411,7 +411,7 @@ async function brandForOrder(admin: Admin, partnerId: string | null): Promise<Br
       logoUrl: p.logo_url,
       primary: p.primary_color || p.accent_color || fallback.primary,
       accent: p.accent_color || p.primary_color || fallback.accent,
-      storeUrl: `https://${p.slug}.kickoffstore.com.br`,
+      storeUrl: `https://${p.slug}.clubedaestampa.com.br`,
       isPartner: true,
     }
   } catch {
@@ -432,14 +432,14 @@ function textOn(hex: string): string {
 
 /**
  * Remetente do e-mail com o NOME da loja de origem (o endereço continua o mesmo,
- * ex.: "BH Wolves <no-reply@kickoffstore.com.br>"). Mantém o domínio verificado
+ * ex.: "BH Wolves <no-reply@clubedaestampa.com.br>"). Mantém o domínio verificado
  * no Resend; só o nome de exibição muda por parceiro.
  */
 function fromForBrand(brand: Brand): string {
   const base = resendFromEmail() // "Nome <email>" ou só "email"
   const m = base.match(/<([^>]+)>/)
   const addr = (m?.[1] ?? base).trim()
-  const safe = brand.name.replace(/["<>\r\n]/g, '').trim() || 'Kickoffstore'
+  const safe = brand.name.replace(/["<>\r\n]/g, '').trim() || 'Clube da Estampa'
   const display = safe.includes(',') ? `"${safe}"` : safe
   return `${display} <${addr}>`
 }
@@ -544,8 +544,8 @@ function emailShell(inner: string, brand: Brand, preheader = ''): string {
         ? `<img src="${brand.logoUrl}" alt="${escapeHtml(brand.name)}" style="height:38px;max-width:220px;display:block" />`
         : brand.isPartner
           ? `<span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px">${escapeHtml(brand.name)}</span>`
-          : `<span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px">KICKOFF<span style="color:${brand.accent}">STORE</span></span>`
-  const powered = brand.isPartner ? ' · powered by Kickoffstore' : ''
+          : `<span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px">CLUBE DA ESTAMPA<span style="color:${brand.accent}">STORE</span></span>`
+  const powered = brand.isPartner ? ' · powered by Clube da Estampa' : ''
   // Cabeçalho na cor primária da loja (só parceiros; a principal mantém o fundo escuro).
   // Parceiro usa padding vertical menor pra logo grande quase encostar nas bordas.
   const headerBg = brand.isPartner ? `background:${brand.primary};` : ''

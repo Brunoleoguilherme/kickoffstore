@@ -17,13 +17,13 @@ const HEIGHTS: Record<NonNullable<WordmarkProps['size']>, number> = {
   xl: 104,
 }
 
-/** Kickoffstore official logo (Brand Book v1.0), rendered from the brand asset. */
+/** Clube da Estampa official logo (Brand Book v1.0), rendered from the brand asset. */
 export function Wordmark({ href, className, size = 'md' }: WordmarkProps) {
   const img = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/logo-mark.png"
-      alt="Kickoffstore — Performance starts here"
+      alt="Clube da Estampa — Performance starts here"
       style={{ height: HEIGHTS[size], width: 'auto' }}
       className="select-none"
       draggable={false}

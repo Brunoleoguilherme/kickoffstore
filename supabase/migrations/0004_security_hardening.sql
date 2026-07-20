@@ -1,4 +1,4 @@
--- Kickoffstore — Security hardening (advisors follow-up)
+-- Clube da Estampa — Security hardening (advisors follow-up)
 
 -- 1) grant_role_by_email is a privilege-granting SECURITY DEFINER function.
 --    It must NOT be callable via the public API. Only usable via service role /

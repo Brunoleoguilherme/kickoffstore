@@ -49,7 +49,7 @@ export function ComposeForm() {
           id="caption"
           name="caption"
           rows={4}
-          placeholder="Escreva a legenda do post… #kickoffstore"
+          placeholder="Escreva a legenda do post… #clubedaestampa"
           className="w-full rounded-md border border-night-200 px-3 py-2 text-sm"
         />
       </div>

@@ -9,7 +9,7 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
   {
     title: 'Institucional',
     links: [
-      { label: 'Sobre a Kickoffstore', href: '/' },
+      { label: 'Sobre o Clube da Estampa', href: '/' },
       { label: 'Trabalhe conosco', href: '/' },
       { label: 'Blog', href: '/' },
     ],
@@ -74,7 +74,7 @@ export function SiteFooter() {
               )
             ) : (
               <span className="font-display text-2xl font-extrabold uppercase tracking-tight">
-                <span className="text-white">KICKOFF</span>
+                <span className="text-white">CLUBE DA ESTAMPA</span>
                 <span className="text-brand-500">STORE</span>
               </span>
             )}
@@ -131,7 +131,7 @@ export function SiteFooter() {
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-night-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {brandName}. Todos os direitos reservados.
-            {isPartner && <span className="ml-2 text-night-500">· powered by Kickoffstore</span>}
+            {isPartner && <span className="ml-2 text-night-500">· powered by Clube da Estampa</span>}
           </p>
           <p className="flex items-center gap-2">
             <Lock className="h-4 w-4 text-brand-500" aria-hidden /> Pagamento seguro • Pix, cartão e boleto

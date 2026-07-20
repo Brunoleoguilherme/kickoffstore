@@ -1,8 +1,8 @@
 'use client'
 
 import { createBrowserClient } from '@supabase/ssr'
-import type { Database } from '@kickoffstore/types'
-import { clientEnv } from '@kickoffstore/validation'
+import type { Database } from '@clubedaestampa/types'
+import { clientEnv } from '@clubedaestampa/validation'
 
 /** Browser Supabase client (anon key only — never service role). */
 export function createClient() {

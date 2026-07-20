@@ -5,7 +5,7 @@ import { KLogo } from '@/components/brand/k-logo'
 import { useBrand } from '@/components/partners/brand-context'
 
 /**
- * Logo do header. Na loja principal: símbolo K + KICKOFFSTORE.
+ * Logo do header. Na loja principal: símbolo K + CLUBE DA ESTAMPA.
  * Numa loja de parceiro: o logo enviado pelo parceiro (ou o nome dele).
  */
 export function HeaderLogo() {
@@ -37,12 +37,12 @@ export function HeaderLogo() {
   return (
     <Link
       href="/"
-      aria-label="KickoffStore — página inicial"
+      aria-label="Clube da Estampa — página inicial"
       className="flex shrink-0 items-center gap-2.5"
     >
       <KLogo size={40} />
       <span className="font-display text-xl font-extrabold uppercase leading-none tracking-tight sm:text-2xl">
-        <span className="text-white">KICKOFF</span>
+        <span className="text-white">CLUBE DA ESTAMPA</span>
         <span className="text-brand-500">STORE</span>
       </span>
     </Link>

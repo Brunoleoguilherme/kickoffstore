@@ -43,7 +43,7 @@ export function PartnerEditForm({
       <div>
         <Label htmlFor="slug">Subdomínio (slug)</Label>
         <Input id="slug" name="slug" defaultValue={p.slug} required />
-        <p className="mt-1 text-xs text-night-500">{p.slug}.kickoffstore.com.br</p>
+        <p className="mt-1 text-xs text-night-500">{p.slug}.clubedaestampa.com.br</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <ColorField name="primaryColor" label="Cor primária" defaultValue={p.primaryColor || '#1e3a8a'} />

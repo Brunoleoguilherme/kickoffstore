@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { createServerClient } from '@supabase/ssr'
-import type { Database } from '@kickoffstore/types'
-import { clientEnv } from '@kickoffstore/validation'
+import type { Database } from '@clubedaestampa/types'
+import { clientEnv } from '@clubedaestampa/validation'
 
 /**
  * Server Supabase client bound to the request cookies. Uses the anon key and

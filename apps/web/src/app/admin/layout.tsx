@@ -36,7 +36,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
       <aside className="relative z-10 w-60 shrink-0 border-r border-night-100 bg-white/80 p-4 backdrop-blur">
         <Link href="/admin" className="text-lg font-black text-brand-600">
-          Kickoffstore
+          Clube da Estampa
         </Link>
         <p className="mb-4 text-xs uppercase tracking-wide text-night-500">Administração</p>
         <nav className="flex flex-col gap-1 text-sm">

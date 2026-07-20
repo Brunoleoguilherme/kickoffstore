@@ -1,4 +1,4 @@
--- Kickoffstore — Auth & RBAC support (Fase 2)
+-- Clube da Estampa — Auth & RBAC support (Fase 2)
 -- Append-only migration. Depends on 0001_initial_schema.sql.
 
 -- 1) System roles (global; organization_id NULL keeps them order-independent).

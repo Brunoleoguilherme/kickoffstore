@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatBRL, discountPercent } from '@kickoffstore/ui'
+import { formatBRL, discountPercent } from '@clubedaestampa/ui'
 import { productImageUrl } from '@/lib/catalog/image'
 import type { ProductSummary } from '@/lib/catalog/models'
 

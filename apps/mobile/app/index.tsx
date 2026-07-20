@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { colors, formatBRL } from '@kickoffstore/ui'
+import { colors, formatBRL } from '@clubedaestampa/ui'
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.brand}>Kickoffstore</Text>
+      <Text style={styles.brand}>Clube da Estampa</Text>
       <Text style={styles.subtitle}>Aplicativo do cliente — em construção (Fundação).</Text>
       <Text style={styles.hint}>Exemplo de tokens compartilhados: {formatBRL(49900)}</Text>
     </View>

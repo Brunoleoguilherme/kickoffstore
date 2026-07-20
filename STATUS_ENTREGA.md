@@ -1,10 +1,10 @@
-# Status da entrega — Kickoffstore
+# Status da entrega — Clube da Estampa
 
 > Fases 1, 2 e 3 entregues e **validadas na máquina do usuário** em 2026-07-12.
 
 ## Situação atual: BUILD VERDE ✅
 
-Rodados com sucesso em `C:\kickoffstore` (Node 22 + pnpm):
+Rodados com sucesso em `C:\clubedaestampa` (Node 22 + pnpm):
 
 - `pnpm lint` ✅
 - `pnpm typecheck` ✅ (6 pacotes)

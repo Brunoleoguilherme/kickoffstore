@@ -1,4 +1,4 @@
-# Deploy do Kickoffstore na Vercel
+# Deploy do Clube da Estampa na Vercel
 
 Guia passo a passo para colocar a loja no ar e ativar a confirmação de
 pagamento (Stripe cartão + Cora Pix) via webhook. Siga na ordem.
@@ -28,7 +28,7 @@ Nas configurações do projeto na Vercel:
 - **Build Command:** deixe o padrão (`next build`).
 - **Output Directory:** deixe o padrão (`.next`).
 
-Os pacotes `@kickoffstore/*` são compilados automaticamente pelo Next (já estão em `transpilePackages`), então não há passo de build extra.
+Os pacotes `@clubedaestampa/*` são compilados automaticamente pelo Next (já estão em `transpilePackages`), então não há passo de build extra.
 
 ---
 
@@ -41,7 +41,7 @@ Em **Project → Settings → Environment Variables**, adicione todas abaixo
 
 ```
 NEXT_PUBLIC_APP_URL=https://SEU_DOMINIO.vercel.app
-NEXT_PUBLIC_APP_NAME=Kickoffstore
+NEXT_PUBLIC_APP_NAME=Clube da Estampa
 NEXT_PUBLIC_SUPABASE_URL=https://pippmbrzwjcwbhmvbveg.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon key do Supabase>
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_ou_test_...
@@ -57,7 +57,7 @@ CRON_SECRET=<segredo aleatório>
 WEBHOOK_INTERNAL_SECRET=<segredo aleatório — usado para registrar o webhook da Cora>
 
 RESEND_API_KEY=re_...
-RESEND_FROM_EMAIL=Kickoffstore <pedidos@seudominio.com.br>
+RESEND_FROM_EMAIL=Clube da Estampa <pedidos@seudominio.com.br>
 
 STRIPE_SECRET_KEY=sk_live_ou_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...        # preenchido no Passo 4
@@ -76,7 +76,7 @@ CORA_KEY_BASE64=<chave privada .key em base64>
 ## Passo 3 — Primeiro deploy
 
 1. Rode o deploy (push no git, ou `vercel --prod`).
-2. Quando terminar, copie o domínio final (ex.: `https://kickoffstore.vercel.app`).
+2. Quando terminar, copie o domínio final (ex.: `https://clubedaestampa.vercel.app`).
 3. Volte em Environment Variables e ajuste **`NEXT_PUBLIC_APP_URL`** para esse domínio final.
 4. **Redeploy** (para o novo valor valer).
 

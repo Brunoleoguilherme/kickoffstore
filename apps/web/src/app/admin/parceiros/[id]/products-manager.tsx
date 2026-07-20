@@ -101,7 +101,7 @@ export function ProductsManager({
       <div>
         <h3 className="mb-2 font-semibold">Produtos compartilhados na vitrine</h3>
         <p className="mb-3 text-sm text-night-500">
-          Produtos da Kickoffstore que este parceiro também vende. Marque para incluir.
+          Produtos do Clube da Estampa que este parceiro também vende. Marque para incluir.
         </p>
         {shared.length > 0 && (
           <div className="mb-3 flex flex-wrap gap-2">

@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { categorySchema, brandSchema } from '@kickoffstore/validation'
+import { categorySchema, brandSchema } from '@clubedaestampa/validation'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { requirePermission, getUser } from '@/lib/auth/session'
 import { getDefaultOrganizationId } from '@/lib/org'

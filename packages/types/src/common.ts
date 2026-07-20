@@ -1,7 +1,7 @@
 /** Monetary amounts are ALWAYS integer cents (see CLAUDE.md rule 9). */
 export type Cents = number
 
-/** ISO-4217 currency code. Kickoffstore operates in BRL for the MVP. */
+/** ISO-4217 currency code. Clube da Estampa operates in BRL for the MVP. */
 export type CurrencyCode = 'BRL'
 
 export type UUID = string

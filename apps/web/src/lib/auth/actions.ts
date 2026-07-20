@@ -8,7 +8,7 @@ import {
   requestPasswordResetSchema,
   updatePasswordSchema,
   clientEnv,
-} from '@kickoffstore/validation'
+} from '@clubedaestampa/validation'
 import { createClient } from '@/lib/supabase/server'
 
 export interface ActionState {

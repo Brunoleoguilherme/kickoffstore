@@ -1,4 +1,4 @@
-import type { Cents } from '@kickoffstore/types'
+import type { Cents } from '@clubedaestampa/types'
 
 /** Public-facing product summary (no cost, no supplier data). */
 export interface ProductSummary {

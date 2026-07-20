@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { requirePermission } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import { CouponCreateForm, type PartnerOpt } from './create-form'
 import { CouponRowActions } from './row-actions'
 

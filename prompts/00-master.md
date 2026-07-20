@@ -1,6 +1,6 @@
 # Prompt mestre para Claude Code
 
-Você está na raiz do projeto Kickoffstore. Leia integralmente `CLAUDE.md`, `README.md` e todos os arquivos em `docs/` antes de escrever código.
+Você está na raiz do projeto Clube da Estampa. Leia integralmente `CLAUDE.md`, `README.md` e todos os arquivos em `docs/` antes de escrever código.
 
 Objetivo: construir uma plataforma completa de e-commerce esportivo com site Next.js, aplicativo Expo, Supabase, Vercel, GitHub, Resend, Mercado Pago, Nuvem Fiscal e Melhor Envio.
 

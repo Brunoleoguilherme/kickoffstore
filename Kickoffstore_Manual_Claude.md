@@ -1,8 +1,8 @@
-# Kickoffstore — Blueprint técnico e operacional
+# Clube da Estampa — Blueprint técnico e operacional
 
 Este repositório é um **manual executável para Claude Code**, VS Code, GitHub, Vercel, Supabase, Resend e Expo/EAS. Ele descreve como construir uma operação completa de comércio eletrônico esportivo com site, aplicativo, painel administrativo, catálogo, estoque, compras, notas fiscais, pagamentos, logística, marketing e atendimento.
 
-> A Centauro foi usada apenas como referência funcional de um grande e-commerce esportivo. Não copie identidade visual, textos, imagens, código, estrutura proprietária ou elementos protegidos. A Kickoffstore deve possuir marca, experiência e conteúdo próprios.
+> A Centauro foi usada apenas como referência funcional de um grande e-commerce esportivo. Não copie identidade visual, textos, imagens, código, estrutura proprietária ou elementos protegidos. A Clube da Estampa deve possuir marca, experiência e conteúdo próprios.
 
 ## O que está incluído
 
@@ -48,7 +48,7 @@ Este repositório é um **manual executável para Claude Code**, VS Code, GitHub
 ## Arquitetura de repositório recomendada
 
 ```text
-kickoffstore/
+clubedaestampa/
 ├─ apps/
 │  ├─ web/                     # Next.js: loja + painel administrativo
 │  └─ mobile/                  # Expo: app do cliente
@@ -144,11 +144,11 @@ Nenhuma fase está concluída apenas porque a tela abre. Cada fase deve ter:
 
 # Instruções permanentes do Claude
 
-# CLAUDE.md — Kickoffstore
+# CLAUDE.md — Clube da Estampa
 
 ## Missão
 
-Construir e manter a Kickoffstore como plataforma própria de comércio eletrônico esportivo, com site, aplicativo e painel operacional. O sistema deve ser seguro, auditável, responsivo, acessível, modular e preparado para crescer sem perder controle financeiro, fiscal ou de estoque.
+Construir e manter a Clube da Estampa como plataforma própria de comércio eletrônico esportivo, com site, aplicativo e painel operacional. O sistema deve ser seguro, auditável, responsivo, acessível, modular e preparado para crescer sem perder controle financeiro, fiscal ou de estoque.
 
 ## Princípios inegociáveis
 
@@ -407,7 +407,7 @@ Antes de alterar código:
 
 ## 1. Objetivo
 
-A Kickoffstore será uma plataforma omnichannel de artigos esportivos, inicialmente com operação digital e estrutura pronta para loja física, retirada, PDV e marketplace. O produto deve unir:
+A Clube da Estampa será uma plataforma omnichannel de artigos esportivos, inicialmente com operação digital e estrutura pronta para loja física, retirada, PDV e marketplace. O produto deve unir:
 
 - experiência de compra rápida;
 - operação administrativa centralizada;
@@ -422,7 +422,7 @@ A Kickoffstore será uma plataforma omnichannel de artigos esportivos, inicialme
 
 Grandes varejistas esportivos trabalham com navegação por esporte, gênero, idade, categoria, marca, faixa de preço e performance. Também oferecem busca, cálculo por CEP, conta do cliente, acompanhamento de pedidos, meios de pagamento, trocas, conteúdo, aplicativo e, em operações maiores, retirada e marketplace.
 
-A Kickoffstore adotará esses padrões de mercado com desenho próprio e implantação progressiva.
+A Clube da Estampa adotará esses padrões de mercado com desenho próprio e implantação progressiva.
 
 ## 3. Públicos
 
@@ -2693,7 +2693,7 @@ Documentação técnica, regras fiscais, APIs e legislação podem mudar. Antes 
 
 # Prompt mestre para Claude Code
 
-Você está na raiz do projeto Kickoffstore. Leia integralmente `CLAUDE.md`, `README.md` e todos os arquivos em `docs/` antes de escrever código.
+Você está na raiz do projeto Clube da Estampa. Leia integralmente `CLAUDE.md`, `README.md` e todos os arquivos em `docs/` antes de escrever código.
 
 Objetivo: construir uma plataforma completa de e-commerce esportivo com site Next.js, aplicativo Expo, Supabase, Vercel, GitHub, Resend, Mercado Pago, Nuvem Fiscal e Melhor Envio.
 
@@ -2722,7 +2722,7 @@ Comece agora pela auditoria e pela Fase 1 — Fundação, salvo se ela já estiv
 
 # Fase 1 — Fundação
 
-Implemente a fundação do monorepo Kickoffstore.
+Implemente a fundação do monorepo Clube da Estampa.
 
 Entregas:
 
@@ -2739,7 +2739,7 @@ Entregas:
 - CI do GitHub;
 - README de desenvolvimento;
 - health endpoint;
-- página inicial provisória da Kickoffstore, própria e sem copiar concorrentes.
+- página inicial provisória do Clube da Estampa, própria e sem copiar concorrentes.
 
 Critérios:
 
@@ -2981,7 +2981,7 @@ Implemente o app do cliente com Expo Router.
 
 Entregas:
 
-- design system mobile baseado na identidade Kickoffstore;
+- design system mobile baseado na identidade Clube da Estampa;
 - auth;
 - home;
 - busca;

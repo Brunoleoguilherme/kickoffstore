@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Heart } from 'lucide-react'
-import { formatBRL, formatInstallments, discountPercent } from '@kickoffstore/ui'
+import { formatBRL, formatInstallments, discountPercent } from '@clubedaestampa/ui'
 import { productImageUrl } from '@/lib/catalog/image'
 import type { ProductSummary } from '@/lib/catalog/models'
 

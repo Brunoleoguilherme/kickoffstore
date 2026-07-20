@@ -28,7 +28,7 @@ export function PartnerFilter({
         className="rounded-md border border-night-200 px-3 py-2 text-sm"
       >
         <option value="">Todas</option>
-        <option value="loja">Loja principal (Kickoffstore)</option>
+        <option value="loja">Loja principal (Clube da Estampa)</option>
         {partners.map((p) => (
           <option key={p.id} value={p.id}>
             {p.name}

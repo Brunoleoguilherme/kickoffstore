@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { requireUser } from '@/lib/auth/session'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import { getCampaignOverview, type ChannelMetrics } from '@/lib/marketing/campaigns'
 
 export const metadata: Metadata = { title: 'Campanhas' }

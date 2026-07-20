@@ -5,7 +5,7 @@ import {
   isMelhorEnvioConfigured,
   calculateShipping,
   type ShippingQuote,
-} from '@kickoffstore/integrations'
+} from '@clubedaestampa/integrations'
 import type { CheckoutLineInput } from './actions'
 
 /** Indica se a loja já conectou o Melhor Envio (para exibir o cálculo de frete). */

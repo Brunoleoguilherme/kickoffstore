@@ -14,7 +14,7 @@ export default async function PartnerLoginPage() {
   return (
     <div className="mx-auto flex min-h-dvh max-w-md flex-col justify-center px-6 py-16">
       <div className="mb-8 text-center">
-        <span className="text-lg font-black text-brand-600">Kickoffstore</span>
+        <span className="text-lg font-black text-brand-600">Clube da Estampa</span>
         <h1 className="mt-2 text-2xl font-bold">Portal do parceiro</h1>
         <p className="mt-1 text-sm text-night-500">
           Entre para personalizar a sua loja (cores, logo e mais).
@@ -26,7 +26,7 @@ export default async function PartnerLoginPage() {
       </div>
 
       <p className="mt-6 text-center text-xs text-night-500">
-        Ainda não tem acesso? Fale com a Kickoffstore para vincular sua loja.{' '}
+        Ainda não tem acesso? Fale com o Clube da Estampa para vincular sua loja.{' '}
         <Link href="/redefinir-senha" className="text-brand-600 hover:underline">
           Esqueci a senha
         </Link>

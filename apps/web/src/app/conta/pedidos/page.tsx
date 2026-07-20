@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { requireUser } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import { TrackPurchase } from '@/components/analytics/track-purchase'
 
 export const dynamic = 'force-dynamic'

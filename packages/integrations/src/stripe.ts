@@ -1,5 +1,5 @@
 // ════════════════════════════════════════════════════════════════
-//  Kickoffstore — Cliente Stripe (REST API via fetch, sem SDK)
+//  Clube da Estampa — Cliente Stripe (REST API via fetch, sem SDK)
 //  Portado do projeto BFWC. Mantém zero dependências: usa apenas
 //  `fetch` (nativo no runtime Node do Next) e o módulo `crypto`.
 //

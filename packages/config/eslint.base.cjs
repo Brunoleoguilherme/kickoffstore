@@ -1,5 +1,5 @@
 /**
- * Shared ESLint flat config base for Kickoffstore.
+ * Shared ESLint flat config base for Clube da Estampa.
  * Enforces TypeScript strictness aligned with CLAUDE.md.
  */
 const tseslint = require('typescript-eslint')

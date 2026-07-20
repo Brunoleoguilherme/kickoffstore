@@ -121,12 +121,12 @@ export default async function ParceiroEditPage({ params }: { params: { id: strin
           </span>
         </div>
         <a
-          href={`https://${partner.slug}.kickoffstore.com.br`}
+          href={`https://${partner.slug}.clubedaestampa.com.br`}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-1 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
         >
-          {partner.slug}.kickoffstore.com.br <span aria-hidden>↗</span>
+          {partner.slug}.clubedaestampa.com.br <span aria-hidden>↗</span>
         </a>
       </div>
 

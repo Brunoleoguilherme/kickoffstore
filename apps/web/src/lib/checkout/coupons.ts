@@ -1,5 +1,5 @@
 import 'server-only'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 
 export interface CouponRow {
   id: string

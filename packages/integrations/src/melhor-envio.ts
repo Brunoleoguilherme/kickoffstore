@@ -1,12 +1,12 @@
 // ════════════════════════════════════════════════════════════════
-//  Kickoffstore — Cliente Melhor Envio (cálculo de frete)
+//  Clube da Estampa — Cliente Melhor Envio (cálculo de frete)
 //  REST API v2 via fetch, sem SDK. Zero dependências extras.
 //
 //  Variáveis de ambiente:
 //    MELHOR_ENVIO_TOKEN     = token Bearer (OAuth) da conta.
 //    MELHOR_ENVIO_FROM_CEP  = CEP de origem (de onde os pedidos saem).
 //    MELHOR_ENVIO_SANDBOX   = "true" para usar o ambiente de testes.
-//    MELHOR_ENVIO_USER_AGENT= (opcional) "Kickoffstore (contato@dominio)".
+//    MELHOR_ENVIO_USER_AGENT= (opcional) "Clube da Estampa (contato@dominio)".
 //
 //  Sem MELHOR_ENVIO_TOKEN + MELHOR_ENVIO_FROM_CEP, `isMelhorEnvioConfigured()`
 //  retorna false e o checkout segue sem cálculo de frete (comportamento atual).
@@ -100,7 +100,7 @@ export async function calculateShipping(params: {
   if (params.products.length === 0) throw new Error('Carrinho vazio.')
 
   const userAgent =
-    process.env.MELHOR_ENVIO_USER_AGENT ?? 'Kickoffstore (contato@kickoffstore.com.br)'
+    process.env.MELHOR_ENVIO_USER_AGENT ?? 'Clube da Estampa (contato@clubedaestampa.com.br)'
 
   const body = {
     from: { postal_code: onlyDigits(fromCep) },
@@ -271,7 +271,7 @@ export async function buyLabel(params: {
 }): Promise<BoughtLabel> {
   const token = process.env.MELHOR_ENVIO_TOKEN
   if (!token) throw new Error('Melhor Envio não configurado (MELHOR_ENVIO_TOKEN).')
-  const ua = process.env.MELHOR_ENVIO_USER_AGENT ?? 'Kickoffstore (contato@kickoffstore.com.br)'
+  const ua = process.env.MELHOR_ENVIO_USER_AGENT ?? 'Clube da Estampa (contato@clubedaestampa.com.br)'
   const from = senderFromEnv()
   const r = params.recipient
 

@@ -1,7 +1,7 @@
 -- Development-only seed. Do not use real personal or fiscal data.
 
 insert into public.organizations (id, name, legal_name, slug)
-values ('00000000-0000-0000-0000-000000000001', 'Kickoffstore', 'Kickoffstore Comércio Esportivo LTDA', 'kickoffstore')
+values ('00000000-0000-0000-0000-000000000001', 'Clube da Estampa', 'Clube da Estampa (razão social a definir)', 'clubedaestampa')
 on conflict do nothing;
 
 insert into public.permissions (code, name) values

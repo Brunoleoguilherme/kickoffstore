@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { requirePermission } from '@/lib/auth/session'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import { PartnerFilter, type PartnerOption } from './partner-filter'
 
 export const metadata: Metadata = { title: 'Pedidos' }
@@ -96,7 +96,7 @@ export default async function AdminPedidosPage({
                 </td>
                 <td className="px-4 py-2">{o.customer_snapshot?.name ?? '—'}</td>
                 <td className="px-4 py-2 text-night-500">
-                  {o.partner_id ? (partnerName.get(o.partner_id) ?? 'Parceiro') : 'Kickoffstore'}
+                  {o.partner_id ? (partnerName.get(o.partner_id) ?? 'Parceiro') : 'Clube da Estampa'}
                 </td>
                 <td className="px-4 py-2">
                   <span className="rounded-full bg-night-50 px-2 py-0.5 text-xs">

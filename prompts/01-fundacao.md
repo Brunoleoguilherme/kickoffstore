@@ -1,6 +1,6 @@
 # Fase 1 — Fundação
 
-Implemente a fundação do monorepo Kickoffstore.
+Implemente a fundação do monorepo Clube da Estampa.
 
 Entregas:
 
@@ -17,7 +17,7 @@ Entregas:
 - CI do GitHub;
 - README de desenvolvimento;
 - health endpoint;
-- página inicial provisória da Kickoffstore, própria e sem copiar concorrentes.
+- página inicial provisória do Clube da Estampa, própria e sem copiar concorrentes.
 
 Critérios:
 

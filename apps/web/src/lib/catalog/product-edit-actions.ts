@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
-import { productStatusSchema } from '@kickoffstore/validation'
+import { productStatusSchema } from '@clubedaestampa/validation'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { requirePermission, getUser } from '@/lib/auth/session'
 import { writeAuditLog } from '@/lib/auth/audit'

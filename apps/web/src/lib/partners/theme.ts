@@ -1,6 +1,6 @@
 /**
  * Gera a sobrescrita de tema (variáveis CSS da escala "brand") a partir das
- * cores de um parceiro. A escala padrão (dourado Kickoffstore) fica em
+ * cores de um parceiro. A escala padrão (dourado Clube da Estampa) fica em
  * globals.css; aqui só produzimos a sobrescrita quando há parceiro ativo.
  *
  * As variáveis guardam CANAIS RGB ("200 154 43") para funcionar com o padrão

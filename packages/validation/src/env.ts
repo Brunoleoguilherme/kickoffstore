@@ -19,7 +19,7 @@ const optionalString = z.preprocess(emptyToUndefined, z.string().trim().min(1).o
 /* ---- Client (safe to expose; only NEXT_PUBLIC_*) ---- */
 const clientSchema = z.object({
   NEXT_PUBLIC_APP_URL: z.preprocess(emptyToUndefined, z.string().url().default('http://localhost:3000')),
-  NEXT_PUBLIC_APP_NAME: z.preprocess(emptyToUndefined, z.string().default('Kickoffstore')),
+  NEXT_PUBLIC_APP_NAME: z.preprocess(emptyToUndefined, z.string().default('Clube da Estampa')),
   NEXT_PUBLIC_SUPABASE_URL: optionalString,
   NEXT_PUBLIC_SUPABASE_ANON_KEY: optionalString,
   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: optionalString,
@@ -93,7 +93,7 @@ export function isResendConfigured(): boolean {
 
 /** Remetente padrão dos e-mails (fallback seguro se a env não estiver setada). */
 export function resendFromEmail(): string {
-  return process.env.RESEND_FROM_EMAIL || 'Kickoffstore <no-reply@kickoffstore.local>'
+  return process.env.RESEND_FROM_EMAIL || 'Clube da Estampa <no-reply@clubedaestampa.local>'
 }
 
 /** Lista de e-mails que recebem a notificação de novo pedido (equipe/loja). */

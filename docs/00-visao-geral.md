@@ -2,7 +2,7 @@
 
 ## 1. Objetivo
 
-A Kickoffstore será uma plataforma omnichannel de artigos esportivos, inicialmente com operação digital e estrutura pronta para loja física, retirada, PDV e marketplace. O produto deve unir:
+A Clube da Estampa será uma plataforma omnichannel de artigos esportivos, inicialmente com operação digital e estrutura pronta para loja física, retirada, PDV e marketplace. O produto deve unir:
 
 - experiência de compra rápida;
 - operação administrativa centralizada;
@@ -17,7 +17,7 @@ A Kickoffstore será uma plataforma omnichannel de artigos esportivos, inicialme
 
 Grandes varejistas esportivos trabalham com navegação por esporte, gênero, idade, categoria, marca, faixa de preço e performance. Também oferecem busca, cálculo por CEP, conta do cliente, acompanhamento de pedidos, meios de pagamento, trocas, conteúdo, aplicativo e, em operações maiores, retirada e marketplace.
 
-A Kickoffstore adotará esses padrões de mercado com desenho próprio e implantação progressiva.
+A Clube da Estampa adotará esses padrões de mercado com desenho próprio e implantação progressiva.
 
 ## 3. Públicos
 

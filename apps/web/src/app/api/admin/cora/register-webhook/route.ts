@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { registerEndpoint } from '@kickoffstore/integrations'
-import { isCoraConfigured, clientEnv } from '@kickoffstore/validation'
+import { registerEndpoint } from '@clubedaestampa/integrations'
+import { isCoraConfigured, clientEnv } from '@clubedaestampa/validation'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { clientEnv, isSupabaseConfigured } from '@kickoffstore/validation'
+import { clientEnv, isSupabaseConfigured } from '@clubedaestampa/validation'
 import { listActiveProducts } from '@/lib/catalog/queries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

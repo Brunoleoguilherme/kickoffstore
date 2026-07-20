@@ -118,7 +118,7 @@ export function EditForm({
       <div className="rounded-md border border-night-100 p-3">
         <Label>Seções na loja principal</Label>
         <p className="mb-2 text-xs text-night-500">
-          Onde aparece na home da Kickoffstore. Nas lojas de parceiro, configure na tela do parceiro.
+          Onde aparece na home do Clube da Estampa. Nas lojas de parceiro, configure na tela do parceiro.
         </p>
         <div className="space-y-1.5">
           <label className={checkRow}>
@@ -153,7 +153,7 @@ export function EditForm({
               value="1"
               defaultChecked={initial.showInMain}
             />
-            Loja principal (Kickoffstore)
+            Loja principal (Clube da Estampa)
           </label>
           {partners.map((p) => (
             <label key={p.id} className={checkRow}>

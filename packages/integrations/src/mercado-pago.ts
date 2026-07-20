@@ -6,7 +6,7 @@ import type {
   RefundInput,
   RefundResult,
   WebhookVerificationInput,
-} from '@kickoffstore/types'
+} from '@clubedaestampa/types'
 import { IntegrationNotConfiguredError } from './errors'
 
 export interface MercadoPagoConfig {

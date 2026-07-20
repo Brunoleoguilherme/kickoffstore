@@ -1,4 +1,4 @@
--- Kickoffstore MVP schema
+-- Clube da Estampa MVP schema
 -- Review fiscal fields and business rules with accounting/legal professionals before production.
 
 create extension if not exists pgcrypto;

@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
-import { clientEnv } from '@kickoffstore/validation'
+import { clientEnv } from '@clubedaestampa/validation'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { getDefaultOrganizationId } from '@/lib/org'
 import { requirePermission, getUser } from '@/lib/auth/session'

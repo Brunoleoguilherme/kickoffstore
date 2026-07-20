@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { requireUser } from '@/lib/auth/session'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { getDefaultOrganizationId } from '@/lib/org'
-import { formatBRL } from '@kickoffstore/ui'
+import { formatBRL } from '@clubedaestampa/ui'
 import {
   REVENUE_STATUSES,
   currentMonthKey,

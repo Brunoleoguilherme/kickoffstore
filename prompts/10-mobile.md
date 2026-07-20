@@ -4,7 +4,7 @@ Implemente o app do cliente com Expo Router.
 
 Entregas:
 
-- design system mobile baseado na identidade Kickoffstore;
+- design system mobile baseado na identidade Clube da Estampa;
 - auth;
 - home;
 - busca;

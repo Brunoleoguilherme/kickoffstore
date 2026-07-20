@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { constructWebhookEvent, type StripeCheckoutSession } from '@kickoffstore/integrations'
+import { constructWebhookEvent, type StripeCheckoutSession } from '@clubedaestampa/integrations'
 import { confirmPaymentByExternalId } from '@/lib/payments/orders'
 
 // Precisamos do corpo bruto + crypto → runtime Node.

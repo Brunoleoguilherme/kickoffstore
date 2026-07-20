@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { staffInviteSchema, clientEnv } from '@kickoffstore/validation'
+import { staffInviteSchema, clientEnv } from '@clubedaestampa/validation'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { requirePermission, getUser } from '@/lib/auth/session'
 import { writeAuditLog } from '@/lib/auth/audit'

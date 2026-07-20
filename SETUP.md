@@ -1,4 +1,4 @@
-# Kickoffstore — Setup de desenvolvimento (Fase 1: Fundação)
+# Clube da Estampa — Setup de desenvolvimento (Fase 1: Fundação)
 
 Este documento explica como instalar, rodar e validar o monorepo em uma máquina
 com acesso normal à internet (registro npm liberado).

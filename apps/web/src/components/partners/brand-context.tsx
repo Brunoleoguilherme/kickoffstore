@@ -13,7 +13,7 @@ export interface Brand {
 }
 
 const DEFAULT_BRAND: Brand = {
-  name: 'Kickoffstore',
+  name: 'Clube da Estampa',
   logoUrl: null,
   isPartner: false,
   tagline: null,

@@ -5,10 +5,10 @@ interface KLogoProps {
 }
 
 /**
- * Kickoffstore "K" monogram — geometric, two-tone (graphite + gold).
+ * Clube da Estampa "K" monogram — geometric, two-tone (graphite + gold).
  * Vector recreation of the Brand Book symbol. Transparent background.
  */
-export function KLogo({ size = 32, className, title = 'Kickoffstore' }: KLogoProps) {
+export function KLogo({ size = 32, className, title = 'Clube da Estampa' }: KLogoProps) {
   return (
     <svg
       width={size}

@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { colors } from '@kickoffstore/ui/tokens'
+import { colors } from '@clubedaestampa/ui/tokens'
 
 const config: Config = {
   darkMode: ['class'],
@@ -8,7 +8,7 @@ const config: Config = {
     extend: {
       colors: {
         // brand e accent são dirigidos por variáveis CSS (padrão = dourado
-        // Kickoffstore, em globals.css). Parceiros sobrescrevem por subdomínio.
+        // Clube da Estampa, em globals.css). Parceiros sobrescrevem por subdomínio.
         brand: {
           50: 'rgb(var(--brand-50) / <alpha-value>)',
           100: 'rgb(var(--brand-100) / <alpha-value>)',
