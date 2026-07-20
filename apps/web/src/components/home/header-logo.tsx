@@ -42,8 +42,8 @@ export function HeaderLogo() {
     >
       <KLogo size={40} />
       <span className="font-display text-xl font-extrabold uppercase leading-none tracking-tight sm:text-2xl">
-        <span className="text-white">CLUBE DA ESTAMPA</span>
-        <span className="text-brand-500">STORE</span>
+        <span className="text-white">CLUBE DA </span>
+        <span className="text-brand-500">ESTAMPA</span>
       </span>
     </Link>
   )

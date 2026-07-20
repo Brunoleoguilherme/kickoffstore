@@ -46,7 +46,7 @@ export function SiteFooter() {
   const brandName = brand.name
   const description = isPartner
     ? (brand.tagline ?? `Loja oficial ${brand.name}.`)
-    : 'Equipamento esportivo premium para quem leva o esporte a sério. Performance starts here.'
+    : 'Estampas autorais em vestuário premium. Coleções que falam a sua língua.'
 
   const socials: Array<{ Icon: typeof Instagram; href: string }> = isPartner
     ? (
@@ -74,8 +74,8 @@ export function SiteFooter() {
               )
             ) : (
               <span className="font-display text-2xl font-extrabold uppercase tracking-tight">
-                <span className="text-white">CLUBE DA ESTAMPA</span>
-                <span className="text-brand-500">STORE</span>
+                <span className="text-white">CLUBE DA </span>
+                <span className="text-brand-500">ESTAMPA</span>
               </span>
             )}
             <p className="mt-3 max-w-xs text-sm text-night-300">{description}</p>
@@ -99,7 +99,7 @@ export function SiteFooter() {
 
           {!isPartner && (
             <div>
-              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Modalidades</h3>
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Coleções</h3>
               <ul className="space-y-2 text-sm text-night-300">
                 {SPORTS.map((s) => (
                   <li key={s.slug}>

@@ -23,7 +23,7 @@ export function Wordmark({ href, className, size = 'md' }: WordmarkProps) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/logo-mark.png"
-      alt="Clube da Estampa — Performance starts here"
+      alt="Clube da Estampa — Estampas autorais"
       style={{ height: HEIGHTS[size], width: 'auto' }}
       className="select-none"
       draggable={false}

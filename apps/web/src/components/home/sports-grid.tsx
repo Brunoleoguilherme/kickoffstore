@@ -1,17 +1,17 @@
 import Link from 'next/link'
-import { Trophy, Shield, Flag, Footprints, Target, Dumbbell, ArrowUpRight } from 'lucide-react'
+import { Trophy, Palette, Sparkles, Music, Flame, Star, ArrowUpRight } from 'lucide-react'
 import { SPORTS, sportHref, type CategoryItem } from '@/lib/home/nav'
 
-const ICONS: Record<CategoryItem['icon'], typeof Trophy> = { Trophy, Shield, Flag, Footprints, Target, Dumbbell }
+const ICONS: Record<CategoryItem['icon'], typeof Trophy> = { Trophy, Palette, Sparkles, Music, Flame, Star }
 
-// Imagens temáticas por modalidade (temporárias — trocar por arte própria depois).
+// Imagens temáticas por coleção (temporárias — trocar por arte própria depois).
 const IMAGE: Record<string, string> = {
-  futebol: 'https://loremflickr.com/800/500/soccer,stadium?lock=301',
-  'futebol-americano': 'https://loremflickr.com/800/500/american,football?lock=302',
-  'flag-football': 'https://loremflickr.com/800/500/flag,football?lock=303',
-  corrida: 'https://loremflickr.com/800/500/running,track?lock=304',
-  basquete: 'https://loremflickr.com/800/500/basketball,court?lock=305',
-  'academia-fitness': 'https://loremflickr.com/800/500/gym,fitness?lock=306',
+  esporte: 'https://loremflickr.com/800/500/sport,jersey?lock=301',
+  autorais: 'https://loremflickr.com/800/500/illustration,art?lock=302',
+  'cultura-pop': 'https://loremflickr.com/800/500/pop,art?lock=303',
+  musica: 'https://loremflickr.com/800/500/music,concert?lock=304',
+  streetwear: 'https://loremflickr.com/800/500/streetwear,fashion?lock=305',
+  classicos: 'https://loremflickr.com/800/500/minimal,fashion?lock=306',
 }
 
 export function SportsGrid() {
@@ -20,7 +20,7 @@ export function SportsGrid() {
       <div className="mb-8">
         <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-500">Explore</span>
         <h2 className="mt-1 font-display text-3xl font-extrabold uppercase tracking-tight text-white">
-          Compre por modalidade
+          Compre por coleção
         </h2>
       </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

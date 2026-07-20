@@ -544,7 +544,7 @@ function emailShell(inner: string, brand: Brand, preheader = ''): string {
         ? `<img src="${brand.logoUrl}" alt="${escapeHtml(brand.name)}" style="height:38px;max-width:220px;display:block" />`
         : brand.isPartner
           ? `<span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px">${escapeHtml(brand.name)}</span>`
-          : `<span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px">CLUBE DA ESTAMPA<span style="color:${brand.accent}">STORE</span></span>`
+          : `<span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px">CLUBE DA <span style="color:${brand.accent}">ESTAMPA</span></span>`
   const powered = brand.isPartner ? ' · powered by Clube da Estampa' : ''
   // Cabeçalho na cor primária da loja (só parceiros; a principal mantém o fundo escuro).
   // Parceiro usa padding vertical menor pra logo grande quase encostar nas bordas.

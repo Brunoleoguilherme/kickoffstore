@@ -12,7 +12,7 @@ export default async function ContaLayout({ children }: { children: React.ReactN
         <header className="mb-8 flex items-center justify-between border-b border-white/10 pb-5">
           <div>
             <Link href="/" className="font-display text-xl font-extrabold uppercase tracking-tight text-white">
-              CLUBE DA ESTAMPA<span className="text-brand-500">STORE</span>
+              CLUBE DA <span className="text-brand-500">ESTAMPA</span>
             </Link>
             <p className="mt-1 text-sm text-night-300">Minha conta · {user.email}</p>
           </div>

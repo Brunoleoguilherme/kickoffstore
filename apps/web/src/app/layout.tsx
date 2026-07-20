@@ -24,12 +24,12 @@ export async function generateMetadata(): Promise<Metadata> {
     title: {
       default: partner
         ? `${name} — Loja oficial`
-        : `${name} — Performance starts here`,
+        : `${name} — Estampas autorais`,
       template: `%s · ${name}`,
     },
     description: partner
       ? `Loja oficial ${partner.name} — powered by Clube da Estampa.`
-      : 'Clube da Estampa: artigos esportivos premium com curadoria por modalidade. Performance starts here.',
+      : 'Clube da Estampa: vestuário com estampas autorais em coleções — do esporte à cultura pop.',
     metadataBase: new URL(clientEnv.NEXT_PUBLIC_APP_URL),
   }
 }

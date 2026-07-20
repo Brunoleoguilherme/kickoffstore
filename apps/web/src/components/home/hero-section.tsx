@@ -22,15 +22,14 @@ export function HeroSection() {
         {/* texto */}
         <div className="max-w-xl">
           <span className="inline-block rounded-md border border-brand-500/40 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-brand-500">
-            Performance starts here
+            Estampas autorais
           </span>
           <h1 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-white sm:text-6xl">
-            Equipamento <span className="text-brand-500">premium</span> para quem leva o esporte a
-            sério.
+            Vista o que você <span className="text-brand-500">curte</span>.
           </h1>
           <p className="mt-5 max-w-md text-base text-night-200 sm:text-lg">
-            Curadoria por modalidade, marcas de alta performance e uma experiência de compra moderna
-            e confiável.
+            Estampas autorais em coleções que falam a sua língua — do esporte à cultura pop.
+            Qualidade premium e entrega confiável.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

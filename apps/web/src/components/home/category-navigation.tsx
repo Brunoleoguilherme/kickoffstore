@@ -1,20 +1,20 @@
 import Link from 'next/link'
-import { Trophy, Shield, Flag, Footprints, Target, Dumbbell } from 'lucide-react'
+import { Trophy, Palette, Sparkles, Music, Flame, Star } from 'lucide-react'
 import { SPORTS, sportHref, type CategoryItem } from '@/lib/home/nav'
 
 const ICONS: Record<CategoryItem['icon'], typeof Trophy> = {
   Trophy,
-  Shield,
-  Flag,
-  Footprints,
-  Target,
-  Dumbbell,
+  Palette,
+  Sparkles,
+  Music,
+  Flame,
+  Star,
 }
 
-/** Faixa de modalidades logo abaixo do hero. Scroll horizontal no mobile. */
+/** Faixa de coleções logo abaixo do hero. Scroll horizontal no mobile. */
 export function CategoryNavigation() {
   return (
-    <nav aria-label="Modalidades" className="border-y border-white/5 bg-[#0B0B0B]">
+    <nav aria-label="Coleções" className="border-y border-white/5 bg-[#0B0B0B]">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <ul className="flex snap-x gap-3 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-6 lg:overflow-visible">
           {SPORTS.map((s) => {

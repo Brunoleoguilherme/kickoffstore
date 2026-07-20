@@ -9,7 +9,7 @@ import { HomeProductCard } from '@/components/home/product-card'
 
 export const metadata: Metadata = {
   title: 'Produtos',
-  description: 'Explore o catálogo esportivo premium do Clube da Estampa.',
+  description: 'Explore as coleções de estampas do Clube da Estampa.',
 }
 
 export default async function ProdutosPage({ searchParams }: { searchParams: { q?: string } }) {

@@ -16,10 +16,10 @@ export function NewsletterSection() {
     <section className="border-y border-white/5 bg-surface">
       <div className="mx-auto max-w-[1440px] px-6 py-16 text-center sm:px-8">
         <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
-          Entre para o time
+          Entre para o clube
         </h2>
         <p className="mx-auto mt-2 max-w-md text-night-300">
-          Receba lançamentos, ofertas exclusivas e conteúdo por modalidade.
+          Receba novas coleções, drops e ofertas exclusivas.
         </p>
         <form onSubmit={onSubmit} className="mx-auto mt-6 flex max-w-md flex-col gap-3 sm:flex-row" noValidate>
           <label htmlFor="newsletter-email" className="sr-only">
@@ -45,7 +45,7 @@ export function NewsletterSection() {
         </form>
         {status === 'ok' && (
           <p role="status" className="mt-3 text-sm font-medium text-brand-500">
-            Pronto! Você está no time. ⚡
+            Pronto! Você está no clube. ⚡
           </p>
         )}
         {status === 'error' && (
