@@ -223,6 +223,30 @@ export async function toggleSharedProductAction(
   revalidatePath(`/admin/parceiros/${partnerId}`)
 }
 
+/** Marca ou desmarca TODOS os produtos compartilhados de uma vez. */
+export async function setAllSharedProductsAction(
+  partnerId: string,
+  productIds: string[],
+  enabled: boolean,
+): Promise<void> {
+  await requirePermission('catalog.write')
+  if (!partnerId || productIds.length === 0) return
+  const admin = createAdminClient()
+  if (enabled) {
+    await admin.from('partner_products').upsert(
+      productIds.map((product_id) => ({ partner_id: partnerId, product_id })),
+      { onConflict: 'partner_id,product_id' },
+    )
+  } else {
+    await admin
+      .from('partner_products')
+      .delete()
+      .eq('partner_id', partnerId)
+      .in('product_id', productIds)
+  }
+  revalidatePath(`/admin/parceiros/${partnerId}`)
+}
+
 /**
  * Vincula (ou cria) o usuário DONO de um parceiro pelo e-mail e gera um link
  * para ele definir a senha. O admin repassa o link ao parceiro. Não envia e-mail

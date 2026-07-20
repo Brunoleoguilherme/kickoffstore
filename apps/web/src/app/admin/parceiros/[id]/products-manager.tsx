@@ -4,6 +4,7 @@ import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   toggleSharedProductAction,
+  setAllSharedProductsAction,
   setExclusiveProductAction,
 } from '@/lib/partners/partner-actions'
 
@@ -102,6 +103,30 @@ export function ProductsManager({
         <p className="mb-3 text-sm text-night-500">
           Produtos da Kickoffstore que este parceiro também vende. Marque para incluir.
         </p>
+        {shared.length > 0 && (
+          <div className="mb-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              disabled={pending}
+              onClick={() =>
+                run(() => setAllSharedProductsAction(partnerId, shared.map((p) => p.id), true))
+              }
+              className="rounded-md border border-night-200 px-3 py-1.5 text-xs font-medium hover:bg-night-50 disabled:opacity-50"
+            >
+              Marcar todos
+            </button>
+            <button
+              type="button"
+              disabled={pending}
+              onClick={() =>
+                run(() => setAllSharedProductsAction(partnerId, shared.map((p) => p.id), false))
+              }
+              className="rounded-md border border-night-200 px-3 py-1.5 text-xs font-medium hover:bg-night-50 disabled:opacity-50"
+            >
+              Desmarcar todos
+            </button>
+          </div>
+        )}
         {shared.length === 0 ? (
           <p className="text-sm text-night-500">Nenhum produto compartilhado disponível.</p>
         ) : (
