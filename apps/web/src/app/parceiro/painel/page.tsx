@@ -42,7 +42,7 @@ export default async function PartnerPanelPage() {
 
   const primary = partner.primary_color ?? '#1e3a8a'
   const accent = partner.accent_color ?? '#f59e0b'
-  const storeUrl = `https://${partner.slug}.clubedaestampa.com.br`
+  const storeUrl = `https://${partner.slug}.kickoffstore.com.br`
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-6 py-10">
@@ -52,11 +52,11 @@ export default async function PartnerPanelPage() {
           <p className="text-sm text-night-500">
             {partner.active ? (
               <a href={storeUrl} target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">
-                {partner.slug}.clubedaestampa.com.br ↗
+                {partner.slug}.kickoffstore.com.br ↗
               </a>
             ) : (
               <span>
-                {partner.slug}.clubedaestampa.com.br — <strong>inativa</strong> (aguardando ativação do Clube da Estampa)
+                {partner.slug}.kickoffstore.com.br — <strong>inativa</strong> (aguardando ativação do Clube da Estampa)
               </span>
             )}
           </p>

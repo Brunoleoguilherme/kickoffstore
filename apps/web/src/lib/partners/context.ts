@@ -17,7 +17,9 @@ export interface ActivePartner {
   youtube: string | null
 }
 
-const ROOT_DOMAIN = 'clubedaestampa.com.br'
+// Domínios raiz aceitos (o site vive em kickoffstore.com.br e migrará para
+// clubedaestampa.com.br — ambos precisam resolver os subdomínios de parceiro).
+const ROOT_DOMAINS = ['kickoffstore.com.br', 'clubedaestampa.com.br']
 const RESERVED = new Set(['www', 'admin', 'app', 'api', 'loja'])
 
 /** Extrai o slug do parceiro a partir do host (subdomínio). Null = loja principal. */
@@ -25,8 +27,9 @@ export function partnerSlugFromHost(hostRaw: string | null): string | null {
   if (!hostRaw) return null
   const host = (hostRaw.split(':')[0] ?? '').trim().toLowerCase()
   let sub: string | null = null
-  if (host.endsWith('.' + ROOT_DOMAIN)) {
-    sub = host.slice(0, host.length - (ROOT_DOMAIN.length + 1))
+  const root = ROOT_DOMAINS.find((d) => host === d || host.endsWith('.' + d))
+  if (root && host.endsWith('.' + root)) {
+    sub = host.slice(0, host.length - (root.length + 1))
   } else if (host.endsWith('.localhost')) {
     sub = host.slice(0, host.length - '.localhost'.length)
   } else {

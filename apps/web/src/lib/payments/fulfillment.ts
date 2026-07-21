@@ -411,7 +411,7 @@ async function brandForOrder(admin: Admin, partnerId: string | null): Promise<Br
       logoUrl: p.logo_url,
       primary: p.primary_color || p.accent_color || fallback.primary,
       accent: p.accent_color || p.primary_color || fallback.accent,
-      storeUrl: `https://${p.slug}.clubedaestampa.com.br`,
+      storeUrl: `https://${p.slug}.kickoffstore.com.br`,
       isPartner: true,
     }
   } catch {
@@ -432,7 +432,7 @@ function textOn(hex: string): string {
 
 /**
  * Remetente do e-mail com o NOME da loja de origem (o endereço continua o mesmo,
- * ex.: "BH Wolves <no-reply@clubedaestampa.com.br>"). Mantém o domínio verificado
+ * ex.: "BH Wolves <no-reply@kickoffstore.com.br>"). Mantém o domínio verificado
  * no Resend; só o nome de exibição muda por parceiro.
  */
 function fromForBrand(brand: Brand): string {
