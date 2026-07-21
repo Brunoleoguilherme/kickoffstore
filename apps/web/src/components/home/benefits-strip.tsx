@@ -2,7 +2,7 @@ import { ShieldCheck, Award, Lock, RefreshCw } from 'lucide-react'
 
 const BENEFITS = [
   { icon: ShieldCheck, title: 'Produtos originais', text: 'Das melhores marcas' },
-  { icon: Award, title: 'Atendimento especializado', text: 'Para atletas e times' },
+  { icon: Award, title: 'Atendimento de verdade', text: 'Gente pronta pra ajudar' },
   { icon: Lock, title: 'Compra segura', text: 'Seus dados protegidos' },
   { icon: RefreshCw, title: 'Troca fácil', text: 'Até 7 dias após o recebimento' },
 ]

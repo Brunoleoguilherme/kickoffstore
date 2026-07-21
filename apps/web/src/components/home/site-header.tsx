@@ -20,7 +20,7 @@ export function SiteHeader() {
   const cartCount = hydrated ? count : 0
   const brand = useBrand()
 
-  // Loja de parceiro: menu enxuto (sem as modalidades do Clube da Estampa).
+  // Loja de parceiro: menu enxuto (sem as coleções do Clube da Estampa).
   const navItems = brand.isPartner
     ? [
         { name: 'Produtos', href: '/produtos' },

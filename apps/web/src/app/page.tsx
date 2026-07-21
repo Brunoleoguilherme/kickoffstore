@@ -113,7 +113,7 @@ export default async function HomePage() {
           id="lancamentos"
           label="Novo por aqui"
           title="Lançamentos"
-          description="Os melhores equipamentos acabaram de chegar."
+          description="As novas estampas acabaram de chegar."
           products={lancamentos}
           badge="novo"
         />
@@ -123,7 +123,7 @@ export default async function HomePage() {
         <ProductSection
           label="Em alta"
           title="Mais vendidos"
-          description="Os favoritos de quem já é do time."
+          description="Os favoritos de quem já é do clube."
           products={maisVendidos}
         />
 
